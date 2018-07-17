@@ -1,0 +1,191 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    background-color: linen;
+    margin: 0;
+    padding: 0;
+}
+
+.flex-container {
+    display: flex;
+}
+
+/* header */
+header h1 {
+    text-align: left;
+    font-size: 20px;
+    color: black;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+header {
+    display: flex;
+    background-color: #1BEBC0;
+    height: 75px;
+    justify-content: space-between;
+}
+
+header h1 {
+    padding-left: 20px;
+    padding : 15px;
+    margin-top : 5px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-style: bold;
+    font-size: 30px;
+    color : white;
+}
+
+header a {
+    color : white;
+    padding: 5px 10px;
+    text-decoration: none;
+    text-align: center;
+    font-size : 30px;
+    border-radius: 7px;
+}
+
+header a:hover{
+    background-color: #ddd;
+    color: black;
+}
+
+.box-profile {
+    width: 200px;
+    padding-right: 20px;
+    margin: 10px;
+    background-color: #ccc;
+    position: relative;
+}
+
+/* .photo {
+    border-radius: 999px;
+} */
+
+.box-profile p {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color : white;
+    position: relative;
+    margin: 0;
+    margin-top: -7px;
+}
+.box-profile * {
+    padding: 0;
+    margin: 0;
+}
+
+.box-profile {
+    text-align: right;
+}
+
+/* nav */
+nav {
+    /* flex-grow: 1; */
+    display: none;
+    text-align: right;
+    padding-right: 20px;
+    left: 0;
+    right: 0;
+    position: absolute;
+    background-color: #ccc;
+}
+nav li {
+    display: block;
+    margin-top: 20px;
+}
+
+.box-profile:hover > nav {
+    display: block;
+}
+
+/* main */
+.container {
+    display: flex;
+    flex-grow: 1;
+}
+
+.menu {
+    margin-right: 20px;
+    margin-bottom: 20px;
+    color: white;
+    width: 300px;
+    height: 220px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-radius: 10px;
+}
+
+.sidebar {
+    background-color : #1BEBC0;
+    margin: 10px;
+}
+
+.walimurid {
+    text-align: center;
+    font-size: 20px;
+    text-decoration: underline;
+    padding: 1px;
+}
+
+.name {
+    text-align: center;
+    margin-left: 40px;
+    font-size: 20px;
+}
+
+.name::before {
+    content: "";
+    position: absolute;
+    margin-left: -80px;
+    margin-top : -10px;
+    width: 70px;
+    height: 70px;
+    background: url('../../images/intellectual.png');
+    background-size: cover;
+}
+
+.kelas {
+    text-align: center;
+    margin-right: 10px;
+    margin-top: -20px;
+    font-size: 18px;
+}
+
+.total {
+    margin-left: 10px;
+    font-size: 15px;
+}
+
+.jumtotal {
+    text-align: right;
+    margin-right: 10px;
+    margin-top: -35px;
+}
+
+.point {
+    margin-left: 10px;
+    font-size: 15px;
+}
+
+.jumpoint {
+    text-align: right;
+    margin-right: 10px;
+    margin-top: -40px;
+}
+
+.siswa {
+    background-color: #E2E2E2;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+.siswa p {
+    color: #858585;
+    margin-left: 10px;
+}
+
+/* footer */
+footer {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 20px;
+    color : #858585;
+}

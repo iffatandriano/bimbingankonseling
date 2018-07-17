@@ -1,0 +1,362 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    background-color: linen;
+    margin: 0;
+    padding: 0;
+}
+
+.flex-container {
+    display: flex;
+}
+
+/* header */
+header h1 {
+    text-align: left;
+    font-size: 20px;
+    color: black;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+header {
+    display: flex;
+    background-color: #1BEBC0;
+    height: 75px;
+    justify-content: space-between;
+}
+
+header h1 {
+    padding-left: 20px;
+    padding : 15px;
+    margin-top : 5px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-style: bold;
+    font-size: 30px;
+    color : white;
+}
+
+header a {
+    color : white;
+    padding: 5px 10px;
+    text-decoration: none;
+    text-align: center;
+    font-size : 30px;
+    border-radius: 7px;
+}
+
+header a:hover{
+    background-color: #ddd;
+    color: black;
+}
+
+.box-profile {
+    width: 200px;
+    padding-right: 20px;
+    margin: 10px;
+    background-color: #ccc;
+    position: relative;
+}
+
+/* .photo {
+    border-radius: 999px;
+} */
+
+.box-profile p {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color : white;
+    position: relative;
+    margin: 0;
+    margin-top: -7px;
+}
+.box-profile * {
+    padding: 0;
+    margin: 0;
+}
+
+.box-profile {
+    text-align: right;
+}
+
+/* nav */
+nav {
+    /* flex-grow: 1; */
+    display: none;
+    text-align: right;
+    padding-right: 20px;
+    left: 0;
+    right: 0;
+    position: absolute;
+    background-color: #ccc;
+}
+nav li {
+    display: block;
+    margin-top: 20px;
+}
+
+.box-profile:hover > nav {
+    display: block;
+}
+
+
+/* sidebar */
+
+sidebar {
+    display: flex;
+    align-items: flex-start;
+    background-color: #858585;
+    flex-direction: column;
+    /* padding: 10px; */
+    height: 500px;
+    min-width: 200px;
+}
+
+sidebar h1 {
+    color: white;
+    margin-top: auto 5px;
+}
+
+sidebar .dashboard {
+    display : inline;
+    padding-right : 30px;
+    border: #95a5a6;
+}
+
+sidebar .addData {
+    display: inline;
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+
+}
+.container > header{
+    width: 20%;
+}
+
+.container > main{
+    width: 80%;
+}
+
+/* main */
+.box-container {
+    display: flex;
+    flex-wrap: 1;
+}
+
+.jum {
+    /* margin: 25px; */
+    /* margin-left: 45px; */
+    margin-right: 20px;
+    margin-bottom: 20px;
+    color: white;
+    width: 300px;
+    height: 160px;
+    border-radius: 10px;
+}
+
+.KetSiswa {
+    position: absolute;
+    padding: 10px;
+    margin-top: 100px;
+    font-size: 35px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.KetSiswa::before {
+    content: "";
+    position: absolute;
+    margin-right: 10px;
+    margin-top : -100px;
+    width: 90px;
+    height: 90px;
+    background: url('../../images/account.png');
+    background-size: cover;
+}
+
+.JumSiswa {
+    font-size : 40px;
+    margin: 4;
+    margin-left: 220px;
+}
+
+.KetGuru {
+    position: absolute;
+    padding: 10px;
+    margin-top: 100px;
+    font-size: 35px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.KetGuru::before {
+    content: "";
+    position: absolute;
+    margin-right: 10px;
+    margin-top : -100px;
+    width: 90px;
+    height: 90px;
+    background: url('../../images/intellectual.png');
+    background-size: cover;
+}
+
+.JumGuru {
+    font-size : 40px;
+    margin: 4;
+    margin-left: 220px;
+}
+
+.KetPelanggaran {
+    position: absolute;
+    padding: 10px;
+    margin-top: 100px;
+    font-size: 35px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.KetPelanggaran::before {
+    content: "";
+    position: absolute;
+    margin-right: 10px;
+    margin-top : -100px;
+    width: 90px;
+    height: 90px;
+    background: url('../../images/unlocked-lock.png');
+    background-size: cover;
+}
+
+.JumPelanggaran {
+    font-size : 40px;
+    margin: 4;
+    margin-left: 220px;
+}
+
+.siswa {
+    background-color: #3498DB;
+}
+
+.guru {
+    background-color: #F39C12;
+}
+
+.pelanggaran {
+    background-color: #E74C3C;
+}
+
+/* Content  */
+.content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* main warning */
+.box-info{
+    display: flex;
+}
+
+.topwarning {
+    /* margin: 30px;
+    margin-left: 280px; */
+    padding: 10px;
+    /* margin-top: -250px;
+    margin-right: 10px; */
+    /* position: absolute; */
+    width: 500px;
+    height: 150px;
+    border-radius: 10px;
+    background-color: #E2E2E2;
+    margin-right: 20px;
+}
+
+.topwarning h1 {
+    font-size: 18px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.melanggartoday {
+
+    /* margin: 30px;
+    margin-left: 800px; */
+    padding: 10px;
+    /* margin-top: -250px;
+    margin-right: 10px; */
+    /* position: absolute; */
+    width: 500px;
+    height: 150px;
+    border-radius: 10px;
+    background-color: #E2E2E2;
+}
+
+.melanggartoday h1 {
+    font-size: 18px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Menu sidebar */
+.menu-sidebar ul {
+    padding: 0;
+}
+.menu-sidebar ul li {
+    padding: 10px;
+    display: block;
+    position: relative;
+}
+
+.menu-sidebar ul li  a{
+    color: #fff;
+    text-decoration: none;
+    font-weight: bolder;
+    font-size: 20px;
+    margin-left: 40px;
+    display: block;
+}
+
+.dashboard:before {
+    content: "";
+    position: absolute;
+    margin-right: 10px;
+    width: 30px;
+    height: 30px;
+    background: url('../../images/dashboard.png');
+    background-size: cover;
+}
+
+.addData::before {
+    content: "";
+    position: absolute;
+    margin-right: 10px;
+    width: 30px;
+    height: 30px;
+    background:url('../../images/Data.png');
+    background-size : cover;
+}
+
+.AddPelanggaran::before{
+    content: "";
+    position: absolute;
+    margin-right: 10px;
+    width: 30px;
+    height: 30px;
+    background:url('../../images/account.png');
+    background-size: cover;
+}
+
+.AddPelanggaran a:hover {
+    background-color: #ddd;
+}
+
+.menu-sidebar .active {
+    background-color: #ddd;
+}
+
+.dashboard a:hover{
+    background-color: #ddd;
+}
+
+/* footer */
+footer {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 20px;
+    color : #858585;
+}
