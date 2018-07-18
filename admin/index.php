@@ -35,7 +35,7 @@ if(empty($_SESSION['level'] == 'Admin')) {
 
                 <nav>
                     <ul>
-                        <li><a href="">Logout</a></li>  
+                        <li><a href="../logout.php">Logout</a></li>  
                     </ul>
                 </nav>
             </div>
