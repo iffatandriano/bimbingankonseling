@@ -61,34 +61,45 @@ if(empty($_SESSION['level'] == 'Admin')) {
                 </ul>
             </div>
         </sidebar>
-            
-        <main class="box-container">
-                <div class="jum siswa">
-                    <p class="KetSiswa">Siswa</p>
-                    <p class="JumSiswa">10</p>
-                </div>
 
-                <div class="jum guru">
-                    <p class="KetGuru">Guru</p>
-                    <p class="JumGuru">10</p>    
-                </div>
-
-                <div class="jum pelanggaran">
-                    <p class="KetPelanggaran">Pelanggaran</p>
-                    <p class="JumPelanggaran">10</p>
-                </div>  
+       <main class="box-info">
+            <form action="proses-tambah-guru.php" method="POST">
+                <h2>Input Form Guru</h2>
+                <hr>
+                <table>
+                    <tr>
+                        <td>ID</td>
+                        <td><input type="text" name="id_guru"></td>
+                    </tr>  
+                    <tr>    
+                        <td>Nama</td>
+                        <td><input type="text" name="nama_guru"></td>
+                    </tr>
+                    <tr>
+                        <td>Alamat</td>
+                        <td><textarea name="alamat_guru"></textarea></td>
+                    </tr>
+                    <tr>
+                        <td>No Hp</td>
+                        <td><input type="number" name="nohp_guru"></td>
+                    </tr>
+                    <tr>
+                        <td>Jabatan</td>
+                        <td><input type="text" name="jabatan_guru"></td>     
+                    </tr>
+                </table>
+                <hr>
+                <input type="submit">
+                <input type="reset">
+            </form>
+        </main>     
         </main>
+            
+        
+
     </main>
 
-        <main class="box-info">
-            <div class="topwarning">
-                <h1>5 Top Pelanggaran Siswa Yang Dilakukan :</h1>
-            </div>
-            <div class="melanggartoday">
-                <h1>Siswa Melanggar Hari Ini :</h1>
-            </div>
-        </main>    
-
+        
     <footer>
         Copyright &copy; 2018 <a href="">Bimbingan Konseling</a> All Right Reserved.
     </footer>

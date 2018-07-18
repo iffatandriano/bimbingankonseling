@@ -58,7 +58,6 @@
                         }
                     } else {
                         echo "<font color='#e74c3c'><p>Username or Password is wrong, please try!</p></font>";
-                        echo "Hai";
                     }                    
                 }
             ?>

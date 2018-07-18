@@ -61,34 +61,44 @@ if(empty($_SESSION['level'] == 'Admin')) {
                 </ul>
             </div>
         </sidebar>
-            
-        <main class="box-container">
-                <div class="jum siswa">
-                    <p class="KetSiswa">Siswa</p>
-                    <p class="JumSiswa">10</p>
-                </div>
+            <a href="tambah-guru.php">Tambah Guru</a> 
+        <main class="box-info">
+            <table border=1>
+                <tr>
+                    <td>ID</td>
+                    <td>Nama</td>
+                    <td>Alamat</td>
+                    <td>No HP</td>
+                    <td>Jabatan</td>
+                    <td>Aksi</td>
+                </tr>
+               
+               <?php 
+                    $conn = mysqli_connect("localhost","root","","bimbingankonseling");
+                    $sql  = "SELECT * FROM t_guru";
+                    $hasil = mysqli_query($conn,$sql);
 
-                <div class="jum guru">
-                    <p class="KetGuru">Guru</p>
-                    <p class="JumGuru">10</p>    
-                </div>
-
-                <div class="jum pelanggaran">
-                    <p class="KetPelanggaran">Pelanggaran</p>
-                    <p class="JumPelanggaran">10</p>
-                </div>  
+                    $row = mysqli_fetch_row($hasil);
+                    do{
+                        list($id,$nama,$alamat,$nohp,$jabatan)=$row;
+                            echo "
+                                <tr>
+                                    <td>$id</td>
+                                    <td>$nama</td>
+                                    <td>$alamat</td>
+                                    <td>$nohp</td>
+                                    <td>$jabatan</td>
+                                    <td><a href='edit-guru.php?id=$id'>Edit</a>  <a href='hapus-guru.php?id=$id'>Hapus</a></td>
+                                </tr>
+                            ";
+                    }while($row = mysqli_fetch_row($hasil));
+               ?>
+            </table>
+        </main>    
         </main>
     </main>
 
-        <main class="box-info">
-            <div class="topwarning">
-                <h1>5 Top Pelanggaran Siswa Yang Dilakukan :</h1>
-            </div>
-            <div class="melanggartoday">
-                <h1>Siswa Melanggar Hari Ini :</h1>
-            </div>
-        </main>    
-
+        
     <footer>
         Copyright &copy; 2018 <a href="">Bimbingan Konseling</a> All Right Reserved.
     </footer>
