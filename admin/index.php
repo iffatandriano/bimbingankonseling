@@ -8,7 +8,7 @@ if(empty($_SESSION['level'] == 'Admin')) {
 
 <!DOCTYPE html>
 <html>
-<head>
+<head>`
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Bimbingan Konseling - Admin</title>
@@ -51,12 +51,11 @@ if(empty($_SESSION['level'] == 'Admin')) {
                     <!-- Navigation links (hidden by default) -->
                     <li class="addData"><a href="">Master Data</a></li>
                     <div id="myLinks" class="myLinks">
-                        <a href="#news">Add Guru</a>
-                        <a href="#class">Add Kelas</a>
-                        <a href="#contact">Add Siswa</a>
-                        <a href="#about">Add Wali Murid</a>
-                        <a href="#tatatertib">Add Pelanggaran</a>
-                        <a href="#kategorypelanggaran">Add Kategory Pelanggaran</a>
+                        <a href="#news">Guru</a>
+                        <a href="#class">Kelas</a>
+                        <a href="#contact">Siswa</a>
+                        <a href="#about">Wali Murid</a>
+                        <a href="#tatatertib">Pelanggaran</a>
                     </div>
                     <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
                     <a href="javascript:void(0);" class="icon" onclick="myFunction()">
