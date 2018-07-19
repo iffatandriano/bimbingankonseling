@@ -51,7 +51,7 @@ if(empty($_SESSION['level'] == 'Admin')) {
         <sidebar>
             <div class="menu-sidebar">
                 <ul>
-                    <li class="dashboard active"><a href="">DashBoard</a></li>
+                    <li class="dashboard active"><a href="index.php">DashBoard</a></li>
                     <li class="AddSiswa"><a href="">Siswa</a></li>
                     <div class="topnav">
                     <!-- Navigation links (hidden by default) -->
@@ -70,35 +70,17 @@ if(empty($_SESSION['level'] == 'Admin')) {
         </sidebar>
 
        <main class="box-info">
-            <form action="proses-edit-guru.php" method="POST">
-                <h2>Form Edit Data Guru</h2>
-                <hr>
-                <table>
-                    <tr>
-                        <td>ID</td>
-                        <td><input type="text"  readonly value="<?php echo $id?>" name="id_guru"></td>
-                    </tr>  
-                    <tr>    
-                        <td>Nama</td>
-                        <td><input type="text" value="<?php echo $nama?>" name="nama_guru"></td>
-                    </tr>
-                    <tr>
-                        <td>Alamat</td>
-                        <td><textarea name="alamat_guru"><?php echo $alamat?></textarea></td>
-                    </tr>
-                    <tr>
-                        <td>No Hp</td>
-                        <td><input type="number" value="<?php echo $nohp?>" name="nohp_guru"></td>
-                    </tr>
-                    <tr>
-                        <td>Jabatan</td>
-                        <td><input type="text" value="<?php echo $jabatan?>" name="jabatan_guru"></td>     
-                    </tr>
-                </table>
-                <hr>
-                <input type="submit">
-                <input type="reset">
-            </form>
+            <div class="form">
+                <form class="add" action="proses-edit-guru.php" method="POST">
+                    <h2 class="judulform">Form Edit Data Guru</h2>
+                        <input type="text" name="id_guru" readonly value="<?php echo $id?>">
+                        <input class="nameguru" type="text" name="nama_guru" value="<?php echo $nama?>">
+                        <textarea name="alamat_guru"><?php echo $alamat?></textarea>
+                        <input type="number" name="nohp_guru" value="<?php echo $nohp?>">
+                        <input type="text" name="jabatan_guru" value="<?php echo $jabatan?>">
+                    <input type="submit" value="Edit Data" class="button">
+                </form>
+            </div>
         </main>     
         </main>
             

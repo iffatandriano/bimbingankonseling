@@ -7,7 +7,7 @@ if(empty($_SESSION['level'] == 'Admin')) {
 ?>
 <!DOCTYPE html>
 <html>
-<head>
+<head>`
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Bimbingan Konseling - Admin</title>
@@ -34,7 +34,7 @@ if(empty($_SESSION['level'] == 'Admin')) {
 
                 <nav>
                     <ul>
-                        <li><a href="">Logout</a></li>  
+                        <li><a href="../logout.php">Logout</a></li>  
                     </ul>
                 </nav>
             </div>
@@ -44,11 +44,15 @@ if(empty($_SESSION['level'] == 'Admin')) {
         <sidebar>
             <div class="menu-sidebar">
                 <ul>
-                    <li class="dashboard active"><a href="">DashBoard</a></li>
+                    <li class="dashboard active"><a href="index.php">DashBoard</a></li>
                     <li class="AddSiswa"><a href="">Siswa</a></li>
                     <div class="topnav">
                     <!-- Navigation links (hidden by default) -->
+<<<<<<< HEAD
                     <li class="addData"><a href="#" onclick="myFunction()">Master Data</a></li>
+=======
+                    <li class="addData"><a href="javascript:void(0);" onclick="myFunction()">Master Data</a></li>
+>>>>>>> master
                     <div id="myLinks" class="myLinks">
                         <a href="tampil-guru.php">Guru</a>
                         <a href="#class">Kelas</a>
@@ -56,7 +60,10 @@ if(empty($_SESSION['level'] == 'Admin')) {
                         <a href="#about">Wali Murid</a>
                         <a href="#tatatertib">Pelanggaran</a>
                     </div>
+<<<<<<< HEAD
                     <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
+=======
+>>>>>>> master
                     </div>             
                 </ul>
             </div>
