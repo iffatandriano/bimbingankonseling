@@ -48,9 +48,11 @@ if(empty($_SESSION['level'] == 'Admin')) {
                     <li class="AddSiswa"><a href="">Siswa</a></li>
                     <div class="topnav">
                     <!-- Navigation links (hidden by default) -->
-                    <li class="addData"><a href="" onclick="myFunction()">Master Data</a></li>
+                    
+                    <li class="addData"><a href="#" onclick="myFunction()">Master Data</a></li>
+
                     <div id="myLinks" class="myLinks">
-                        <a href="tampil-guru.php" class="active"    >Guru</a>
+                        <a href="tampil-guru.php" class="active">Guru</a>
                         <a href="#class">Kelas</a>
                         <a href="#contact">Siswa</a>
                         <a href="#about">Wali Murid</a>
