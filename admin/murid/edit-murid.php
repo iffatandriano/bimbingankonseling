@@ -3,7 +3,14 @@
 session_start();
 if(empty($_SESSION['level'] == 'Admin')) {
 	header("location:../index.php");
-} 
+}else{
+    $id = $_GET['id'];
+    $conn = mysqli_connect("localhost","root","","bimbingankonseling");
+    $sql = "SELECT * FROM t_wali where id_wali='$id'";
+    $hasil = mysqli_query($conn,$sql);
+    $row = mysqli_fetch_row($hasil);
+    list($id,$nama,$alamat,$nohp)=$row;
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -12,7 +19,7 @@ if(empty($_SESSION['level'] == 'Admin')) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Bimbingan Konseling - Admin</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="../css/style.css" />
     <script>
         function myFunction() {
         var x = document.getElementById("myLinks");
@@ -44,7 +51,7 @@ if(empty($_SESSION['level'] == 'Admin')) {
         <sidebar>
             <div class="menu-sidebar">
                 <ul>
-                    <li class="dashboard active"><a href="">DashBoard</a></li>
+                    <li class="dashboard active"><a href="index.php">DashBoard</a></li>
                     <li class="AddSiswa"><a href="">Siswa</a></li>
                     <div class="topnav">
                     <!-- Navigation links (hidden by default) -->
@@ -61,41 +68,23 @@ if(empty($_SESSION['level'] == 'Admin')) {
                 </ul>
             </div>
         </sidebar>
-            <a href="tambah-guru.php">Tambah Siswa</a> 
-        <main class="box-info">
-            <table border=1>
-                <tr>
-                    <td>ID</td>
-                    <td>Nama</td>
-                    <td>Alamat</td>
-                    <td>No HP</td>
-                    <td>Jabatan</td>
-                    <td>Aksi</td>
-                </tr>
-               
-               <?php 
-                    $conn = mysqli_connect("localhost","root","","bimbingankonseling");
-                    $sql  = "SELECT * FROM t_guru";
-                    $hasil = mysqli_query($conn,$sql);
 
-                    $row = mysqli_fetch_row($hasil);
-                    do{
-                        list($id,$nama,$alamat,$nohp,$jabatan)=$row;
-                            echo "
-                                <tr>
-                                    <td>$id</td>
-                                    <td>$nama</td>
-                                    <td>$alamat</td>
-                                    <td>$nohp</td>
-                                    <td>$jabatan</td>
-                                    <td><a href='edit-guru.php?id=$id'>Edit</a>  <a href='hapus-guru.php?id=$id'>Hapus</a></td>
-                                </tr>
-                            ";
-                    }while($row = mysqli_fetch_row($hasil));
-               ?>
-            </table>
-        </main>    
+       <main class="box-info">
+            <div class="form">
+                <form class="add" action="proses-edit-wali.php" method="POST">
+                    <h2 class="judulform">Form Edit Data wali</h2>
+                        <input type="text" name="id_wali" readonly value="<?php echo $id?>">
+                        <input class="namewali" type="text" name="nama_wali" value="<?php echo $nama?>">
+                        <textarea name="alamat_wali"><?php echo $alamat?></textarea>
+                        <input type="number" name="nohp_wali" value="<?php echo $nohp?>">
+                    <input type="submit" value="Edit Data" class="button">
+                </form>
+            </div>
+        </main>     
         </main>
+            
+        
+
     </main>
 
         
