@@ -5,10 +5,9 @@ if(empty($_SESSION['level'] == 'Admin')) {
 	header("location:../index.php");
 } 
 ?>
-
 <!DOCTYPE html>
 <html>
-<head>`
+<head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Bimbingan Konseling - Admin</title>
@@ -35,7 +34,7 @@ if(empty($_SESSION['level'] == 'Admin')) {
 
                 <nav>
                     <ul>
-                        <li><a href="../logout.php">Logout</a></li>  
+                        <li><a href="">Logout</a></li>  
                     </ul>
                 </nav>
             </div>
@@ -45,50 +44,44 @@ if(empty($_SESSION['level'] == 'Admin')) {
         <sidebar>
             <div class="menu-sidebar">
                 <ul>
-                    <li class="dashboard active"><a href="index.php">DashBoard</a></li>
+                    <li class="dashboard"><a href="index.php">DashBoard</a></li>
                     <li class="AddSiswa"><a href="">Siswa</a></li>
                     <div class="topnav">
                     <!-- Navigation links (hidden by default) -->
-                    <li class="addData"><a href="javascript:void(0);" onclick="myFunction()">Master Data</a></li>
+                    <li class="addData"><a href="" onclick="myFunction()">Master Data</a></li>
                     <div id="myLinks" class="myLinks">
-                        <a href="tampil-guru.php">Guru</a>
+                        <a href="tampil-guru.php" class="active"    >Guru</a>
                         <a href="#class">Kelas</a>
                         <a href="#contact">Siswa</a>
                         <a href="#about">Wali Murid</a>
                         <a href="#tatatertib">Pelanggaran</a>
                     </div>
+                    <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
                     </div>             
                 </ul>
             </div>
         </sidebar>
-            
-        <main class="box-container">
-                <div class="jum siswa">
-                    <p class="KetSiswa">Siswa</p>
-                    <p class="JumSiswa">10</p>
-                </div>
 
-                <div class="jum guru">
-                    <p class="KetGuru">Guru</p>
-                    <p class="JumGuru">10</p>    
-                </div>
-
-                <div class="jum pelanggaran">
-                    <p class="KetPelanggaran">Pelanggaran</p>
-                    <p class="JumPelanggaran">10</p>
-                </div>  
+       <main class="box-info">
+            <div class="form">
+                <form class="add" action="proses-tambah-guru.php" method="POST">
+                    <h2 class="judulform">Input Form Guru</h2>
+                        <input type="text" name="id_guru" placeholder="Masukkan Id Guru">
+                        <input class="nameguru" type="text" name="nama_guru" placeholder="Nama Guru">
+                        <textarea name="alamat_guru" placeholder="write your address here"></textarea>
+                        <input type="number" name="nohp_guru" placeholder="Phone number here">
+                        <input type="text" name="jabatan_guru" placeholder="Position teacher here">
+                    <input type="submit" value="Add Data" class="button">
+                </form>
+            </div>
+        </main>     
         </main>
+            
+        
+
     </main>
 
-        <main class="box-info">
-            <div class="topwarning">
-                <h1>5 Top Pelanggaran Siswa Yang Dilakukan :</h1>
-            </div>
-            <div class="melanggartoday">
-                <h1>Siswa Melanggar Hari Ini :</h1>
-            </div>
-        </main>    
-
+        
     <footer>
         Copyright &copy; 2018 <a href="">Bimbingan Konseling</a> All Right Reserved.
     </footer>

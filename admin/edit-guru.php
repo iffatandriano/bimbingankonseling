@@ -3,12 +3,18 @@
 session_start();
 if(empty($_SESSION['level'] == 'Admin')) {
 	header("location:../index.php");
-} 
+}else{
+    $id = $_GET['id'];
+    $conn = mysqli_connect("localhost","root","","bimbingankonseling");
+    $sql = "SELECT * FROM t_guru where id_guru='$id'";
+    $hasil = mysqli_query($conn,$sql);
+    $row = mysqli_fetch_row($hasil);
+    list($id,$nama,$alamat,$nohp,$jabatan)=$row;
+}
 ?>
-
 <!DOCTYPE html>
 <html>
-<head>`
+<head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Bimbingan Konseling - Admin</title>
@@ -35,7 +41,7 @@ if(empty($_SESSION['level'] == 'Admin')) {
 
                 <nav>
                     <ul>
-                        <li><a href="../logout.php">Logout</a></li>  
+                        <li><a href="">Logout</a></li>  
                     </ul>
                 </nav>
             </div>
@@ -49,7 +55,7 @@ if(empty($_SESSION['level'] == 'Admin')) {
                     <li class="AddSiswa"><a href="">Siswa</a></li>
                     <div class="topnav">
                     <!-- Navigation links (hidden by default) -->
-                    <li class="addData"><a href="javascript:void(0);" onclick="myFunction()">Master Data</a></li>
+                    <li class="addData"><a href="#" onclick="myFunction()">Master Data</a></li>
                     <div id="myLinks" class="myLinks">
                         <a href="tampil-guru.php">Guru</a>
                         <a href="#class">Kelas</a>
@@ -57,38 +63,32 @@ if(empty($_SESSION['level'] == 'Admin')) {
                         <a href="#about">Wali Murid</a>
                         <a href="#tatatertib">Pelanggaran</a>
                     </div>
+                    <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
                     </div>             
                 </ul>
             </div>
         </sidebar>
-            
-        <main class="box-container">
-                <div class="jum siswa">
-                    <p class="KetSiswa">Siswa</p>
-                    <p class="JumSiswa">10</p>
-                </div>
 
-                <div class="jum guru">
-                    <p class="KetGuru">Guru</p>
-                    <p class="JumGuru">10</p>    
-                </div>
-
-                <div class="jum pelanggaran">
-                    <p class="KetPelanggaran">Pelanggaran</p>
-                    <p class="JumPelanggaran">10</p>
-                </div>  
+       <main class="box-info">
+            <div class="form">
+                <form class="add" action="proses-edit-guru.php" method="POST">
+                    <h2 class="judulform">Form Edit Data Guru</h2>
+                        <input type="text" name="id_guru" readonly value="<?php echo $id?>">
+                        <input class="nameguru" type="text" name="nama_guru" value="<?php echo $nama?>">
+                        <textarea name="alamat_guru"><?php echo $alamat?></textarea>
+                        <input type="number" name="nohp_guru" value="<?php echo $nohp?>">
+                        <input type="text" name="jabatan_guru" value="<?php echo $jabatan?>">
+                    <input type="submit" value="Edit Data" class="button">
+                </form>
+            </div>
+        </main>     
         </main>
+            
+        
+
     </main>
 
-        <main class="box-info">
-            <div class="topwarning">
-                <h1>5 Top Pelanggaran Siswa Yang Dilakukan :</h1>
-            </div>
-            <div class="melanggartoday">
-                <h1>Siswa Melanggar Hari Ini :</h1>
-            </div>
-        </main>    
-
+        
     <footer>
         Copyright &copy; 2018 <a href="">Bimbingan Konseling</a> All Right Reserved.
     </footer>
