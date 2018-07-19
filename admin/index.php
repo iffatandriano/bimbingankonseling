@@ -7,7 +7,7 @@ if(empty($_SESSION['level'] == 'Admin')) {
 ?>
 <!DOCTYPE html>
 <html>
-<head>`
+<head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Bimbingan Konseling - Admin</title>
@@ -42,40 +42,30 @@ if(empty($_SESSION['level'] == 'Admin')) {
 
     <main class="container">
         <sidebar>
-            <div class="menu-sidebar">
-                <ul>
-                    <li class="dashboard active"><a href="index.php">DashBoard</a></li>
-                    <li class="AddSiswa"><a href="">Siswa</a></li>
-                    <div class="topnav">
+            <ul>
+                <li class="dashboard active">
+                    <a href="index.php">DashBoard</a>
+                </li>
+                <li class="AddSiswa">
+                    <a href="">Siswa</a>
+                </li>
+                <div class="topnav">
                     <!-- Navigation links (hidden by default) -->
-                    <li class="addData"><a href="javascript:void(0);" onclick="myFunction()">Master Data</a></li>
+                    <li class="addData">
+                        <a href="javascript:void(0);" onclick="myFunction()">Master Data</a>
+                    </li>
                     <div id="myLinks" class="myLinks">
-                        <a href="tampil-guru.php">Guru</a>
-                        <a href="kelas/tampil-kelas.php">Kelas</a>
-                        <a href="siswa/tampil-siswa.php">Siswa</a>
+                        <a href="guru/tampil-guru.php">Guru</a>
+                        <a href="murid/tampil-murid.php">Murid</a>
                         <a href="wali/tampil-wali.php">Wali Murid</a>
-                        <a href="#tatatertib">Pelanggaran</a>
+                        <a href="pelanggaran/tampil-pelanggaran.php">Pelanggaran</a>
                     </div>
-                    </div>             
-                </ul>
-            </div>
+                </div>
+            </ul>
         </sidebar>
             
         <main class="box-container">
-                <div class="jum siswa">
-                    <p class="KetSiswa">Siswa</p>
-                    <p class="JumSiswa">10</p>
-                </div>
-
-                <div class="jum guru">
-                    <p class="KetGuru">Guru</p>
-                    <p class="JumGuru">10</p>    
-                </div>
-
-                <div class="jum pelanggaran">
-                    <p class="KetPelanggaran">Pelanggaran</p>
-                    <p class="JumPelanggaran">10</p>
-                </div>  
+                <?php include '../function/datacount.php'; ?>
         </main>
     </main>
 

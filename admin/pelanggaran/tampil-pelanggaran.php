@@ -42,11 +42,11 @@ if(empty($_SESSION['level'] == 'Admin')) {
 
     <main class="container">
         <sidebar>
-            <?php include '../component/sidebar.html'; ?>
+                <?php include '../component/sidebar.html'; ?>
         </sidebar>
         
         <main>
-        <a class="adddata" href="tambah-murid.php">Tambah murid</a>
+        <a class="adddata" href="tambah-guru.php">Tambah Guru</a>
         </main>
 
         <main class="box-info">
@@ -57,18 +57,19 @@ if(empty($_SESSION['level'] == 'Admin')) {
                     <td>Nama</td>
                     <td>Alamat</td>
                     <td>No HP</td>
+                    <td>Jabatan</td>
                     <td>Aksi</td>
                 </tr>
                
                <?php 
                     $conn = mysqli_connect("localhost","root","","bimbingankonseling");
-                    $sql  = "SELECT * FROM t_murid";
+                    $sql  = "SELECT * FROM t_guru";
                     $hasil = mysqli_query($conn,$sql);
 
                     $row = mysqli_fetch_row($hasil);
                     $i = 1;
                     do{
-                        list($id,$nama,$alamat,$nohp)=$row;    
+                        list($id,$nama,$alamat,$nohp,$jabatan)=$row;    
                         echo "
                                 <tr>
                                     <td>$i</td>
@@ -76,7 +77,8 @@ if(empty($_SESSION['level'] == 'Admin')) {
                                     <td>$nama</td>
                                     <td>$alamat</td>
                                     <td>$nohp</td>
-                                    <td><a href='edit-murid.php?id=$id'>Edit</a>  <a href='proses-hapus-murid.php?id=$id'>Hapus</a></td>
+                                    <td>$jabatan</td>
+                                    <td><a href='edit-guru.php?id=$id'>Edit</a>  <a href='hapus-guru.php?id=$id'>Hapus</a></td>
                                 </tr>
                             ";
 

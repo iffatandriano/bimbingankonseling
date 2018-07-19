@@ -42,24 +42,7 @@ if(empty($_SESSION['level'] == 'Admin')) {
 
     <main class="container">
         <sidebar>
-            <div class="menu-sidebar">
-                <ul>
-                    <li class="dashboard"><a href="index.php">DashBoard</a></li>
-                    <li class="AddSiswa"><a href="">Siswa</a></li>
-                    <div class="topnav">
-                    <!-- Navigation links (hidden by default) -->
-                    <li class="addData"><a href="#" onclick="myFunction()">Master Data</a></li>
-                    <div id="myLinks" class="myLinks">
-                        <a class="active" href="tampil-guru.php">Guru</a>
-                        <a href="#class">Kelas</a>
-                        <a href="#contact">Siswa</a>
-                        <a href="#about">Wali Murid</a>
-                        <a href="#tatatertib">Pelanggaran</a>
-                    </div>
-                    <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
-                    </div>             
-                </ul>
-            </div>
+            <?php include '../component/sidebar.html'; ?>
         </sidebar>
         
         <main>
