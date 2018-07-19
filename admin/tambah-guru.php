@@ -44,15 +44,6 @@ if(empty($_SESSION['level'] == 'Admin')) {
         <sidebar>
             <div class="menu-sidebar">
                 <ul>
-<<<<<<< HEAD
-                    <li class="dashboard active"><a href="">DashBoard</a></li>
-                    <li class="AddSiswa"><a href="">Siswa</a></li>
-                    <div class="topnav">
-                    <!-- Navigation links (hidden by default) -->
-                    <li class="addData"><a href="#" onclick="myFunction()">Master Data</a></li>
-                    <div id="myLinks" class="myLinks">
-                        <a href="tampil-guru.php">Guru</a>
-=======
                     <li class="dashboard"><a href="index.php">DashBoard</a></li>
                     <li class="AddSiswa"><a href="">Siswa</a></li>
                     <div class="topnav">
@@ -60,7 +51,6 @@ if(empty($_SESSION['level'] == 'Admin')) {
                     <li class="addData"><a href="" onclick="myFunction()">Master Data</a></li>
                     <div id="myLinks" class="myLinks">
                         <a href="tampil-guru.php" class="active"    >Guru</a>
->>>>>>> master
                         <a href="#class">Kelas</a>
                         <a href="#contact">Siswa</a>
                         <a href="#about">Wali Murid</a>
@@ -73,37 +63,6 @@ if(empty($_SESSION['level'] == 'Admin')) {
         </sidebar>
 
        <main class="box-info">
-<<<<<<< HEAD
-            <form action="proses-tambah-guru.php" method="POST">
-                <h2>Input Form Guru</h2>
-                <hr>
-                <table>
-                    <tr>
-                        <td>ID</td>
-                        <td><input type="text" name="id_guru"></td>
-                    </tr>  
-                    <tr>    
-                        <td>Nama</td>
-                        <td><input type="text" name="nama_guru"></td>
-                    </tr>
-                    <tr>
-                        <td>Alamat</td>
-                        <td><textarea name="alamat_guru"></textarea></td>
-                    </tr>
-                    <tr>
-                        <td>No Hp</td>
-                        <td><input type="number" name="nohp_guru"></td>
-                    </tr>
-                    <tr>
-                        <td>Jabatan</td>
-                        <td><input type="text" name="jabatan_guru"></td>     
-                    </tr>
-                </table>
-                <hr>
-                <input type="submit">
-                <input type="reset">
-            </form>
-=======
             <div class="form">
                 <form class="add" action="proses-tambah-guru.php" method="POST">
                     <h2 class="judulform">Input Form Guru</h2>
@@ -115,7 +74,6 @@ if(empty($_SESSION['level'] == 'Admin')) {
                     <input type="submit" value="Add Data" class="button">
                 </form>
             </div>
->>>>>>> master
         </main>     
         </main>
             

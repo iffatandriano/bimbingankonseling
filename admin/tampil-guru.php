@@ -44,21 +44,13 @@ if(empty($_SESSION['level'] == 'Admin')) {
         <sidebar>
             <div class="menu-sidebar">
                 <ul>
-<<<<<<< HEAD
-                    <li class="dashboard active"><a href="">DashBoard</a></li>
-=======
                     <li class="dashboard"><a href="index.php">DashBoard</a></li>
->>>>>>> master
                     <li class="AddSiswa"><a href="">Siswa</a></li>
                     <div class="topnav">
                     <!-- Navigation links (hidden by default) -->
                     <li class="addData"><a href="#" onclick="myFunction()">Master Data</a></li>
                     <div id="myLinks" class="myLinks">
-<<<<<<< HEAD
-                        <a href="tampil-guru.php">Guru</a>
-=======
                         <a class="active" href="tampil-guru.php">Guru</a>
->>>>>>> master
                         <a href="#class">Kelas</a>
                         <a href="#contact">Siswa</a>
                         <a href="#about">Wali Murid</a>
@@ -69,12 +61,6 @@ if(empty($_SESSION['level'] == 'Admin')) {
                 </ul>
             </div>
         </sidebar>
-<<<<<<< HEAD
-            <a href="tambah-guru.php">Tambah Guru</a> 
-        <main class="box-info">
-            <table border=1>
-                <tr>
-=======
         
         <main>
         <a class="adddata" href="tambah-guru.php">Tambah Guru</a>
@@ -84,7 +70,6 @@ if(empty($_SESSION['level'] == 'Admin')) {
             <table border=1>
                 <tr>
                     <td>#</td>
->>>>>>> master
                     <td>ID</td>
                     <td>Nama</td>
                     <td>Alamat</td>
@@ -99,19 +84,12 @@ if(empty($_SESSION['level'] == 'Admin')) {
                     $hasil = mysqli_query($conn,$sql);
 
                     $row = mysqli_fetch_row($hasil);
-<<<<<<< HEAD
-                    do{
-                        list($id,$nama,$alamat,$nohp,$jabatan)=$row;
-                            echo "
-                                <tr>
-=======
                     $i = 1;
                     do{
                         list($id,$nama,$alamat,$nohp,$jabatan)=$row;    
                         echo "
                                 <tr>
                                     <td>$i</td>
->>>>>>> master
                                     <td>$id</td>
                                     <td>$nama</td>
                                     <td>$alamat</td>
@@ -120,11 +98,8 @@ if(empty($_SESSION['level'] == 'Admin')) {
                                     <td><a href='edit-guru.php?id=$id'>Edit</a>  <a href='hapus-guru.php?id=$id'>Hapus</a></td>
                                 </tr>
                             ";
-<<<<<<< HEAD
-=======
 
                             $i++;
->>>>>>> master
                     }while($row = mysqli_fetch_row($hasil));
                ?>
             </table>

@@ -48,11 +48,8 @@ if(empty($_SESSION['level'] == 'Admin')) {
                     <li class="AddSiswa"><a href="">Siswa</a></li>
                     <div class="topnav">
                     <!-- Navigation links (hidden by default) -->
-<<<<<<< HEAD
                     <li class="addData"><a href="#" onclick="myFunction()">Master Data</a></li>
-=======
                     <li class="addData"><a href="javascript:void(0);" onclick="myFunction()">Master Data</a></li>
->>>>>>> master
                     <div id="myLinks" class="myLinks">
                         <a href="tampil-guru.php">Guru</a>
                         <a href="#class">Kelas</a>
@@ -60,10 +57,7 @@ if(empty($_SESSION['level'] == 'Admin')) {
                         <a href="#about">Wali Murid</a>
                         <a href="#tatatertib">Pelanggaran</a>
                     </div>
-<<<<<<< HEAD
                     <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
-=======
->>>>>>> master
                     </div>             
                 </ul>
             </div>
