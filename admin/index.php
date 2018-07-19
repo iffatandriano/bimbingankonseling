@@ -51,9 +51,9 @@ if(empty($_SESSION['level'] == 'Admin')) {
                     <li class="addData"><a href="javascript:void(0);" onclick="myFunction()">Master Data</a></li>
                     <div id="myLinks" class="myLinks">
                         <a href="tampil-guru.php">Guru</a>
-                        <a href="#class">Kelas</a>
-                        <a href="#contact">Siswa</a>
-                        <a href="#about">Wali Murid</a>
+                        <a href="kelas/tampil-kelas.php">Kelas</a>
+                        <a href="siswa/tampil-siswa.php">Siswa</a>
+                        <a href="wali/tampil-wali.php">Wali Murid</a>
                         <a href="#tatatertib">Pelanggaran</a>
                     </div>
                     </div>             
