@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.0
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 17, 2018 at 09:39 AM
--- Server version: 10.1.31-MariaDB
--- PHP Version: 7.2.4
+-- Generation Time: Jul 19, 2018 at 09:12 AM
+-- Server version: 10.1.30-MariaDB
+-- PHP Version: 7.2.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,45 +25,134 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Table structure for table `t_guru`
 --
 
-CREATE TABLE `user` (
-  `id` int(11) NOT NULL,
-  `nama` varchar(30) NOT NULL,
-  `username` varchar(20) NOT NULL,
-  `password` varchar(10) NOT NULL,
-  `level` enum('Admin','Guru','Walimurid','Siswa') NOT NULL DEFAULT 'Siswa'
+CREATE TABLE `t_guru` (
+  `id_guru` varchar(11) NOT NULL,
+  `gru_nama` varchar(100) NOT NULL,
+  `gru_alamat` varchar(100) NOT NULL,
+  `gru_nohp` varchar(13) NOT NULL,
+  `gru_jabatan` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `user`
+-- Dumping data for table `t_guru`
 --
 
-INSERT INTO `user` (`id`, `nama`, `username`, `password`, `level`) VALUES
-(1, 'IA', 'admin', 'admin', 'Admin'),
-(2, 'Andri S.Pd', 'andri', 'guruku', 'Guru'),
-(3, 'sandi', 'asu', 'kau', 'Walimurid');
+INSERT INTO `t_guru` (`id_guru`, `gru_nama`, `gru_alamat`, `gru_nohp`, `gru_jabatan`) VALUES
+('A1', 'ikwi', 'bubat', '01238123', 'Guru'),
+('A2', 'Arip', 'Aceg', '23', 'Alig');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `t_murid`
+--
+
+CREATE TABLE `t_murid` (
+  `nis` varchar(11) NOT NULL,
+  `id_wali` varchar(11) NOT NULL,
+  `mrd_nama` varchar(100) NOT NULL,
+  `mrd_kelas` varchar(20) NOT NULL,
+  `mrd_alamat` varchar(100) NOT NULL,
+  `mrd_nohp` varchar(13) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `t_pelanggaran`
+--
+
+CREATE TABLE `t_pelanggaran` (
+  `id_pelanggaran` varchar(11) NOT NULL,
+  `id_guru` varchar(11) NOT NULL,
+  `nis` varchar(11) NOT NULL,
+  `plg_jenis` varchar(11) NOT NULL,
+  `plg_keterangan` varchar(100) NOT NULL,
+  `plg_tgl` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `t_user`
+--
+
+CREATE TABLE `t_user` (
+  `id_user` varchar(11) NOT NULL,
+  `username` varchar(11) NOT NULL,
+  `password` varchar(11) NOT NULL,
+  `level` varchar(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `t_wali`
+--
+
+CREATE TABLE `t_wali` (
+  `id_wali` varchar(11) NOT NULL,
+  `wli_nama` varchar(100) NOT NULL,
+  `wli_alamat` varchar(100) NOT NULL,
+  `wli_nohp` varchar(13) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `user`
+-- Indexes for table `t_guru`
 --
-ALTER TABLE `user`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE `t_guru`
+  ADD PRIMARY KEY (`id_guru`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- Indexes for table `t_murid`
+--
+ALTER TABLE `t_murid`
+  ADD PRIMARY KEY (`nis`),
+  ADD KEY `id_wali` (`id_wali`);
+
+--
+-- Indexes for table `t_pelanggaran`
+--
+ALTER TABLE `t_pelanggaran`
+  ADD PRIMARY KEY (`id_pelanggaran`),
+  ADD KEY `id_guru` (`id_guru`),
+  ADD KEY `nis` (`nis`);
+
+--
+-- Indexes for table `t_user`
+--
+ALTER TABLE `t_user`
+  ADD PRIMARY KEY (`id_user`);
+
+--
+-- Indexes for table `t_wali`
+--
+ALTER TABLE `t_wali`
+  ADD PRIMARY KEY (`id_wali`);
+
+--
+-- Constraints for dumped tables
 --
 
 --
--- AUTO_INCREMENT for table `user`
+-- Constraints for table `t_murid`
 --
-ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+ALTER TABLE `t_murid`
+  ADD CONSTRAINT `t_murid_ibfk_1` FOREIGN KEY (`id_wali`) REFERENCES `t_wali` (`id_wali`);
+
+--
+-- Constraints for table `t_pelanggaran`
+--
+ALTER TABLE `t_pelanggaran`
+  ADD CONSTRAINT `t_pelanggaran_ibfk_1` FOREIGN KEY (`id_guru`) REFERENCES `t_guru` (`id_guru`),
+  ADD CONSTRAINT `t_pelanggaran_ibfk_2` FOREIGN KEY (`nis`) REFERENCES `t_murid` (`nis`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
