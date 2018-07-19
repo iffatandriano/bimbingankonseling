@@ -44,13 +44,13 @@ if(empty($_SESSION['level'] == 'Admin')) {
         <sidebar>
             <div class="menu-sidebar">
                 <ul>
-                    <li class="dashboard active"><a href="">DashBoard</a></li>
+                    <li class="dashboard"><a href="index.php">DashBoard</a></li>
                     <li class="AddSiswa"><a href="">Siswa</a></li>
                     <div class="topnav">
                     <!-- Navigation links (hidden by default) -->
                     <li class="addData"><a href="#" onclick="myFunction()">Master Data</a></li>
                     <div id="myLinks" class="myLinks">
-                        <a href="tampil-guru.php">Guru</a>
+                        <a class="active" href="tampil-guru.php">Guru</a>
                         <a href="#class">Kelas</a>
                         <a href="#contact">Siswa</a>
                         <a href="#about">Wali Murid</a>
@@ -61,10 +61,15 @@ if(empty($_SESSION['level'] == 'Admin')) {
                 </ul>
             </div>
         </sidebar>
-            <a href="tambah-wali.php">Tambah Wali</a> 
+        
+        <main>
+        <a class="adddata" href="tambah-wali.php">Tambah Wali</a>
+        </main>
+
         <main class="box-info">
             <table border=1>
                 <tr>
+                    <td>#</td>
                     <td>ID</td>
                     <td>Nama</td>
                     <td>Alamat</td>
@@ -78,17 +83,21 @@ if(empty($_SESSION['level'] == 'Admin')) {
                     $hasil = mysqli_query($conn,$sql);
 
                     $row = mysqli_fetch_row($hasil);
+                    $i = 1;
                     do{
-                        list($id,$nama,$alamat,$nohp)=$row;
-                            echo "
+                        list($id,$nama,$alamat,$nohp)=$row;    
+                        echo "
                                 <tr>
+                                    <td>$i</td>
                                     <td>$id</td>
                                     <td>$nama</td>
                                     <td>$alamat</td>
                                     <td>$nohp</td>
-                                    <td><a href='edit-wali.php?id=$id'>Edit</a>  <a href='hapus-wali.php?id=$id'>Hapus</a></td>
+                                    <td><a href='edit-wali.php?id=$id'>Edit</a>  <a href='proses-hapus-wali.php?id=$id'>Hapus</a></td>
                                 </tr>
                             ";
+
+                            $i++;
                     }while($row = mysqli_fetch_row($hasil));
                ?>
             </table>

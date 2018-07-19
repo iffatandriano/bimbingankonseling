@@ -63,31 +63,17 @@ if(empty($_SESSION['level'] == 'Admin')) {
         </sidebar>
 
        <main class="box-info">
-            <form action="proses-tambah-wali.php" method="POST">
-                <h2>Input Form Wali</h2>
-                <hr>
-                <table>
-                    <tr>
-                        <td>ID</td>
-                        <td><input type="text" name="id_wali"></td>
-                    </tr>  
-                    <tr>    
-                        <td>Nama</td>
-                        <td><input type="text" name="nama_wali"></td>
-                    </tr>
-                    <tr>
-                        <td>Alamat</td>
-                        <td><textarea name="alamat_wali"></textarea></td>
-                    </tr>
-                    <tr>
-                        <td>No Hp</td>
-                        <td><input type="number" name="nohp_wali"></td>
-                    </tr>
-                </table>
-                <hr>
-                <input type="submit">
-                <input type="reset">
-            </form>
+            <div class="form">
+                <form class="add" action="proses-tambah-wali.php" method="POST">
+                    <h2 class="judulform">Input Form wali</h2>
+                        <input type="text" name="id_wali" placeholder="Masukkan Id wali">
+                        <input class="namewali" type="text" name="nama_wali" placeholder="Nama wali">
+                        <textarea name="alamat_wali" placeholder="write your address here"></textarea>
+                        <input type="number" name="nohp_wali" placeholder="Phone number here">
+                        <input type="text" name="jabatan_wali" placeholder="Position teacher here">
+                    <input type="submit" value="Add Data" class="button">
+                </form>
+            </div>
         </main>     
         </main>
             

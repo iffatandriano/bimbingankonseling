@@ -51,17 +51,17 @@ if(empty($_SESSION['level'] == 'Admin')) {
         <sidebar>
             <div class="menu-sidebar">
                 <ul>
-                    <li class="dashboard active"><a href="">DashBoard</a></li>
+                    <li class="dashboard active"><a href="index.php">DashBoard</a></li>
                     <li class="AddSiswa"><a href="">Siswa</a></li>
                     <div class="topnav">
                     <!-- Navigation links (hidden by default) -->
                     <li class="addData"><a href="#" onclick="myFunction()">Master Data</a></li>
                     <div id="myLinks" class="myLinks">
-                        <a href="../guru/tampil-guru.php">Guru</a>
-                        <a href="../kelas/tampil-kelas.php">Kelas</a>
-                        <a href="../murid/tampil-murid.php">Murid</a>
-                        <a href="tampil-wali.php">Wali Murid</a>
-                        <a href="../pelanggaran/tampil-pelanggaran.php">Pelanggaran</a>
+                        <a href="tampil-guru.php">Guru</a>
+                        <a href="#class">Kelas</a>
+                        <a href="#contact">Siswa</a>
+                        <a href="#about">Wali Murid</a>
+                        <a href="#tatatertib">Pelanggaran</a>
                     </div>
                     <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
                     </div>             
@@ -70,31 +70,16 @@ if(empty($_SESSION['level'] == 'Admin')) {
         </sidebar>
 
        <main class="box-info">
-            <form action="proses-edit-wali.php" method="POST">
-                <h2>Form Edit Data Wali</h2>
-                <hr>
-                <table>
-                    <tr>
-                        <td>ID</td>
-                        <td><input type="text"  readonly value="<?php echo $id?>" name="id_wali"></td>
-                    </tr>  
-                    <tr>    
-                        <td>Nama</td>
-                        <td><input type="text" value="<?php echo $nama?>" name="nama_wali"></td>
-                    </tr>
-                    <tr>
-                        <td>Alamat</td>
-                        <td><textarea name="alamat_wali"><?php echo $alamat?></textarea></td>
-                    </tr>
-                    <tr>
-                        <td>No Hp</td>
-                        <td><input type="number" value="<?php echo $nohp?>" name="nohp_wali"></td>
-                    </tr>
-                </table>
-                <hr>
-                <input type="submit">
-                <input type="reset">
-            </form>
+            <div class="form">
+                <form class="add" action="proses-edit-wali.php" method="POST">
+                    <h2 class="judulform">Form Edit Data wali</h2>
+                        <input type="text" name="id_wali" readonly value="<?php echo $id?>">
+                        <input class="namewali" type="text" name="nama_wali" value="<?php echo $nama?>">
+                        <textarea name="alamat_wali"><?php echo $alamat?></textarea>
+                        <input type="number" name="nohp_wali" value="<?php echo $nohp?>">
+                    <input type="submit" value="Edit Data" class="button">
+                </form>
+            </div>
         </main>     
         </main>
             
