@@ -12,7 +12,7 @@ if(empty($_SESSION['level'] == 'Admin')) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Bimbingan Konseling - Admin</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="../css/style.css" />
     <script>
         function myFunction() {
         var x = document.getElementById("myLinks");
@@ -66,9 +66,11 @@ if(empty($_SESSION['level'] == 'Admin')) {
 
        <main class="box-info">
             <div class="form">
-                <form class="add" action="proses-tambah-guru.php" method="POST">
+                <form class="add" autocomplete="off" action="proses-tambah-guru.php" method="POST">
                     <h2 class="judulform">Input Form Guru</h2>
                         <input type="text" name="id_guru" placeholder="Masukkan Id Guru">
+                        <input type="text" autocomplete="off" name="guru_username" placeholder="Masukkan Username">
+                        <input type="password" autocomplete="off" name="guru_password" placeholder="Masukkan Password">
                         <input class="nameguru" type="text" name="nama_guru" placeholder="Nama Guru">
                         <textarea name="alamat_guru" placeholder="write your address here"></textarea>
                         <input type="number" name="nohp_guru" placeholder="Phone number here">

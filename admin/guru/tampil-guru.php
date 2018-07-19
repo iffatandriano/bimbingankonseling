@@ -44,16 +44,14 @@ if(empty($_SESSION['level'] == 'Admin')) {
         <sidebar>
                 <?php include '../component/sidebar.html'; ?>
         </sidebar>
-        
         <main>
-        <a class="adddata" href="tambah-guru.php">Tambah Guru</a>
-        </main>
-
-        <main class="box-info">
+            <label class="buttonAdd"><a href="tambah-guru.php">Tambah Guru</a></label>
             <table border=1>
                 <tr>
                     <td>#</td>
                     <td>ID</td>
+                    <td>Username</td>
+                    <td>Password</td>
                     <td>Nama</td>
                     <td>Alamat</td>
                     <td>No HP</td>
@@ -69,11 +67,21 @@ if(empty($_SESSION['level'] == 'Admin')) {
                     $row = mysqli_fetch_row($hasil);
                     $i = 1;
                     do{
-                        list($id,$nama,$alamat,$nohp,$jabatan)=$row;    
+                        list($id,$nama,$alamat,$nohp,$jabatan)=$row;
+                        
+                        $sql2 = "select * from t_user where id_user= '$id'";
+                        $hasil2 = mysqli_query($conn, $sql2);
+                        $row2 = mysqli_fetch_array($hasil2);    
+
+                        $username = $row2['username'];
+                        $password = $row2['password'];
+
                         echo "
                                 <tr>
                                     <td>$i</td>
                                     <td>$id</td>
+                                    <td>$username</td>
+                                    <td>$password</td>
                                     <td>$nama</td>
                                     <td>$alamat</td>
                                     <td>$nohp</td>
@@ -84,6 +92,9 @@ if(empty($_SESSION['level'] == 'Admin')) {
 
                             $i++;
                     }while($row = mysqli_fetch_row($hasil));
+               ?>
+               <?php 
+             
                ?>
             </table>
         </main>    

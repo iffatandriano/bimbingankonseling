@@ -42,26 +42,30 @@ if(empty($_SESSION['level'] == 'Admin')) {
 
     <main class="container">
         <sidebar>
+            <div class="menu-sidebar">
             <ul>
-                <li class="dashboard active">
-                    <a href="index.php">DashBoard</a>
-                </li>
-                <li class="AddSiswa">
-                    <a href="">Siswa</a>
-                </li>
-                <div class="topnav">
-                    <!-- Navigation links (hidden by default) -->
-                    <li class="addData">
-                        <a href="javascript:void(0);" onclick="myFunction()">Master Data</a>
+                
+                    <li class="dashboard active">
+                        <a href="index.php">DashBoard</a>
                     </li>
-                    <div id="myLinks" class="myLinks">
-                        <a href="guru/tampil-guru.php">Guru</a>
-                        <a href="murid/tampil-murid.php">Murid</a>
-                        <a href="wali/tampil-wali.php">Wali Murid</a>
-                        <a href="pelanggaran/tampil-pelanggaran.php">Pelanggaran</a>
+                    <li class="AddSiswa">
+                        <a href="">Siswa</a>
+                    </li>
+                    <div class="topnav">
+                        <!-- Navigation links (hidden by default) -->
+                        <li class="addData">
+                            <a href="javascript:void(0);" onclick="myFunction()">Master Data</a>
+                        </li>
+                        <div id="myLinks" class="myLinks">
+                            <a href="guru/tampil-guru.php">Guru</a>
+                            <a href="murid/tampil-murid.php">Murid</a>
+                            <a href="wali/tampil-wali.php">Wali Murid</a>
+                            <a href="pelanggaran/tampil-pelanggaran.php">Pelanggaran</a>
+                        </div>
                     </div>
-                </div>
+                
             </ul>
+            </div>
         </sidebar>
             
         <main class="box-container">

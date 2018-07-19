@@ -67,10 +67,11 @@ if(empty($_SESSION['level'] == 'Admin')) {
                 <form class="add" action="proses-tambah-wali.php" method="POST">
                     <h2 class="judulform">Input Form wali</h2>
                         <input type="text" name="id_wali" placeholder="Masukkan Id wali">
+                        <input type="text" autocomplete="off" name="wali_username" placeholder="Masukkan Username">
+                        <input type="password" autocomplete="off" name="wali_password" placeholder="Masukkan Password">
                         <input class="namewali" type="text" name="nama_wali" placeholder="Nama wali">
                         <textarea name="alamat_wali" placeholder="write your address here"></textarea>
                         <input type="number" name="nohp_wali" placeholder="Phone number here">
-                        <input type="text" name="jabatan_wali" placeholder="Position teacher here">
                     <input type="submit" value="Add Data" class="button">
                 </form>
             </div>
