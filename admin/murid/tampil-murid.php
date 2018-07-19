@@ -44,17 +44,16 @@ if(empty($_SESSION['level'] == 'Admin')) {
         <sidebar>
             <?php include '../component/sidebar.html'; ?>
         </sidebar>
-        
-        <main>
-        <a class="adddata" href="tambah-murid.php">Tambah murid</a>
-        </main>
 
-        <main class="box-info">
+        <main>
+            <label class="buttonAdd"><a href="tambah-murid.php">Tambah Murid</a></label>
             <table border=1>
                 <tr>
                     <td>#</td>
+                    <td>NIS</td>
                     <td>ID</td>
                     <td>Nama</td>
+                    <td>Kelas</td>
                     <td>Alamat</td>
                     <td>No HP</td>
                     <td>Aksi</td>
@@ -68,14 +67,17 @@ if(empty($_SESSION['level'] == 'Admin')) {
                     $row = mysqli_fetch_row($hasil);
                     $i = 1;
                     do{
-                        list($id,$nama,$alamat,$nohp)=$row;    
+                        list($nis,$id,$nama,$kelas,$alamat,$nohp)=$row;    
                         echo "
                                 <tr>
                                     <td>$i</td>
+                                    <td>$nis</td>
                                     <td>$id</td>
                                     <td>$nama</td>
+                                    <td>$kelas</td>
                                     <td>$alamat</td>
                                     <td>$nohp</td>
+                                    
                                     <td><a href='edit-murid.php?id=$id'>Edit</a>  <a href='proses-hapus-murid.php?id=$id'>Hapus</a></td>
                                 </tr>
                             ";
