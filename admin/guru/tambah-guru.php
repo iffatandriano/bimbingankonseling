@@ -68,7 +68,6 @@ if(empty($_SESSION['level'] == 'Admin')) {
             <div class="form">
                 <form class="add" autocomplete="off" action="proses-tambah-guru.php" method="POST">
                     <h2 class="judulform">Input Form Guru</h2>
-                        <input type="text" name="id_guru" placeholder="Masukkan Id Guru">
                         <input type="text" autocomplete="off" name="guru_username" placeholder="Masukkan Username">
                         <input type="password" autocomplete="off" name="guru_password" placeholder="Masukkan Password">
                         <input class="nameguru" type="text" name="nama_guru" placeholder="Nama Guru">

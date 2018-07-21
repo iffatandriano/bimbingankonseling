@@ -4,6 +4,7 @@ session_start();
 if(empty($_SESSION['level'] == 'Admin')) {
 	header("location:../index.php");
 } 
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -20,7 +21,7 @@ if(empty($_SESSION['level'] == 'Admin')) {
             x.style.display = "none";
         } else {
             x.style.display = "block";
-        }
+        }   
         }
     </script>
 </head>
@@ -66,7 +67,6 @@ if(empty($_SESSION['level'] == 'Admin')) {
             <div class="form">
                 <form class="add" action="proses-tambah-wali.php" method="POST">
                     <h2 class="judulform">Input Form wali</h2>
-                        <input type="text" name="id_wali" placeholder="Masukkan Id wali">
                         <input type="text" autocomplete="off" name="wali_username" placeholder="Masukkan Username">
                         <input type="password" autocomplete="off" name="wali_password" placeholder="Masukkan Password">
                         <input class="namewali" type="text" name="nama_wali" placeholder="Nama wali">

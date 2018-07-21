@@ -64,13 +64,27 @@ if(empty($_SESSION['level'] == 'Admin')) {
 
        <main class="box-info">
             <div class="form">
-                <form class="add" action="proses-tambah-wali.php" method="POST">
-                    <h2 class="judulform">Input Form wali</h2>
-                        <input type="text" name="id_wali" placeholder="Masukkan Id wali">
-                        <input class="namewali" type="text" name="nama_wali" placeholder="Nama wali">
-                        <textarea name="alamat_wali" placeholder="write your address here"></textarea>
-                        <input type="number" name="nohp_wali" placeholder="Phone number here">
-                        <input type="text" name="jabatan_wali" placeholder="Position teacher here">
+                <form class="add" action="proses-tambah-murid.php" method="POST">
+                    <h2 class="judulform">Input Form Murid</h2>
+                        <input class="namewali" type="text" name="nis" placeholder="NIS">
+                        <select name="id_wali">
+                            <option>PILIH ID WALI</option>
+                            <?php 
+                                $conn = mysqli_connect("localhost","root","","bimbingankonseling");
+                                $sql  = "SELECT * FROM t_wali";
+                                $hasil = mysqli_query($conn,$sql);
+            
+                                $row = mysqli_fetch_row($hasil);
+                                do{
+                                    list($id_wali)=$row;
+                                    echo "<option>$id_wali</option>";
+                                }while($row = mysqli_fetch_row($hasil));
+                            ?>
+                        </select>
+                        <input class="namewali" type="text" name="nama_murid" placeholder="Nama Murid">
+                        <input type="text" name="kelas_murid" placeholder="Kelas Murid">
+                        <textarea name="alamat_murid" placeholder="write your address here"></textarea>
+                        <input type="number" name="nohp_murid" placeholder="Phone number here">
                     <input type="submit" value="Add Data" class="button">
                 </form>
             </div>

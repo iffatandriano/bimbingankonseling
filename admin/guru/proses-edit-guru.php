@@ -4,7 +4,6 @@
     $alamat = $_POST['alamat_guru'];
     $nohp= $_POST['nohp_guru'];
     $jabatan = $_POST['jabatan_guru'];
-    echo "$id";
     if($conn = mysqli_connect("localhost","root","","bimbingankonseling")){
         $sql=
             "UPDATE t_guru 

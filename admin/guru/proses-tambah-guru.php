@@ -1,5 +1,6 @@
 <?php 
-    $id = $_POST['id_guru'];
+    $digits = 9;
+    $id = rand(pow(10, $digits-1), pow(10, $digits)-1);
     $nama = $_POST['nama_guru'];
     $alamat = $_POST['alamat_guru'];
     $nohp= $_POST['nohp_guru'];

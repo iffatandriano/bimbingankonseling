@@ -44,12 +44,9 @@ if(empty($_SESSION['level'] == 'Admin')) {
         <sidebar>
                 <?php include '../component/sidebar.html'; ?>
         </sidebar>
-        
-        <main>
-        <a class="adddata" href="tambah-guru.php">Tambah Guru</a>
-        </main>
 
-        <main class="box-info">
+        <main>
+            <label class="buttonAdd"><a href="tambah-guru.php">Tambah Guru</a></label>
             <table border=1>
                 <tr>
                     <td>#</td>
