@@ -4,12 +4,12 @@ session_start();
 if(empty($_SESSION['level'] == 'Admin')) {
 	header("location:../index.php");
 }else{
-    $id = $_GET['id'];
+    $nis = $_GET['nis'];
     $conn = mysqli_connect("localhost","root","","bimbingankonseling");
-    $sql = "SELECT * FROM t_wali where id_wali='$id'";
+    $sql = "SELECT * FROM t_murid where nis='$nis'";
     $hasil = mysqli_query($conn,$sql);
     $row = mysqli_fetch_row($hasil);
-    list($id,$nama,$alamat,$nohp)=$row;
+    list($nis,$id,$nama,$kelas,$alamat,$nohp)=$row;
 }
 ?>
 <!DOCTYPE html>
@@ -71,12 +71,14 @@ if(empty($_SESSION['level'] == 'Admin')) {
 
        <main class="box-info">
             <div class="form">
-                <form class="add" action="proses-edit-wali.php" method="POST">
+                <form class="add" action="proses-edit-murid.php" method="POST">
                     <h2 class="judulform">Form Edit Data wali</h2>
+                        <input type="text" name="nis" readonly value="<?php echo $nis?>">
                         <input type="text" name="id_wali" readonly value="<?php echo $id?>">
-                        <input class="namewali" type="text" name="nama_wali" value="<?php echo $nama?>">
-                        <textarea name="alamat_wali"><?php echo $alamat?></textarea>
-                        <input type="number" name="nohp_wali" value="<?php echo $nohp?>">
+                        <input class="namewali" type="text" name="nama_murid" value="<?php echo $nama?>">
+                        <input class="namewali" type="text" name="kelas_murid" value="<?php echo $kelas?>">
+                        <textarea name="alamat_murid"><?php echo $alamat?></textarea>
+                        <input type="number" name="nohp_murid" value="<?php echo $nohp?>">
                     <input type="submit" value="Edit Data" class="button">
                 </form>
             </div>

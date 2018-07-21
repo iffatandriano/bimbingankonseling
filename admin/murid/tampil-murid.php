@@ -78,7 +78,7 @@ if(empty($_SESSION['level'] == 'Admin')) {
                                     <td>$alamat</td>
                                     <td>$nohp</td>
                                     
-                                    <td><a href='edit-murid.php?id=$id'>Edit</a>  <a href='proses-hapus-murid.php?id=$id'>Hapus</a></td>
+                                    <td><a href='edit-murid.php?nis=$nis'>Edit</a>  <a href='proses-hapus-murid.php?nis=$nis'>Hapus</a></td>
                                 </tr>
                             ";
 
