@@ -1,7 +1,7 @@
 <?php
     session_start();
 
-    if(empty($_SESSION['level'] == 'Walimurid')) {
+    if(empty($_SESSION['level'] == 'Wali')) {
         header("Location:../index.php");
     }
 ?>

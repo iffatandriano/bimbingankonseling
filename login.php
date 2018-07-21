@@ -50,7 +50,7 @@
                             header("Location:admin/index.php");
                         } else if($_SESSION['level'] == 'Guru') {
                             header("Location:guru/index.php");
-                        } else if($_SESSION['level'] == 'Walimurid') {
+                        } else if($_SESSION['level'] == 'Wali') {
                             header("Location:walimurid/index.php");
                         } else if($_SESSION['level'] == 'Siswa') {
                             header("Location:siswa/index.php");
