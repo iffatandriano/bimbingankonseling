@@ -46,36 +46,38 @@ if(empty($_SESSION['level'] == 'Admin')) {
         </sidebar>
 
         <main>
-            <label class="buttonAdd"><a href="tambah-guru.php">Tambah Guru</a></label>
+            <label class="buttonAdd"><a href="tambah-pelanggaran.php">Tambah Pelanggaran</a></label>
             <table border=1>
                 <tr>
                     <td>#</td>
-                    <td>ID</td>
-                    <td>Nama</td>
-                    <td>Alamat</td>
-                    <td>No HP</td>
-                    <td>Jabatan</td>
+                    <td>Nomor Pelanggaran</td>
+                    <td>ID Guru</td>
+                    <td>NIS</td>
+                    <td>Jenis</td>
+                    <td>Keterangan</td>
+                    <td>Tanggal Pelanggaran</td>
                     <td>Aksi</td>
                 </tr>
                
                <?php 
                     $conn = mysqli_connect("localhost","root","","bimbingankonseling");
-                    $sql  = "SELECT * FROM t_guru";
+                    $sql  = "SELECT * FROM t_pelanggaran";
                     $hasil = mysqli_query($conn,$sql);
 
                     $row = mysqli_fetch_row($hasil);
                     $i = 1;
                     do{
-                        list($id,$nama,$alamat,$nohp,$jabatan)=$row;    
+                        list($id_plg,$id_guru,$nis,$jenis,$keterangan,$tanggal)=$row;    
                         echo "
                                 <tr>
                                     <td>$i</td>
-                                    <td>$id</td>
-                                    <td>$nama</td>
-                                    <td>$alamat</td>
-                                    <td>$nohp</td>
-                                    <td>$jabatan</td>
-                                    <td><a href='edit-guru.php?id=$id'>Edit</a>  <a href='hapus-guru.php?id=$id'>Hapus</a></td>
+                                    <td>$id_plg</td>
+                                    <td>$id_guru</td>
+                                    <td>$nis</td>
+                                    <td>$jenis</td>
+                                    <td>$keterangan</td>
+                                    <td>$tanggal</td>
+                                    <td><a href='edit-guru.php?id=$id_plg'>Edit</a>  <a href='hapus-guru.php?id=$id_plg'>Hapus</a></td>
                                 </tr>
                             ";
 
