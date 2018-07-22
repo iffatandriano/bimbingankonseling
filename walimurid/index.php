@@ -17,18 +17,7 @@
 </head>
 <body>
     <header>
-            <h1>Bimbingan Konseling</h1>
-            <div class="box-profile">
-                <img src="" class="profile-img">
-                <p>Iffat Andriano</p>
-                <p>Wali Murid</p>
-
-                <nav>
-                    <ul>
-                        <li><a href="../logout.php">Logout</a></li>  
-                    </ul>
-                </nav>
-            </div>
+            <?php include '../function/header.php' ?>
     </header>
 
     <main class="container">

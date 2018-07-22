@@ -135,7 +135,7 @@ sidebar .addData {
 }
 
 .container > main{
-    width: 80%;
+    width: 100%;
 }
 
 /* main */
@@ -145,10 +145,8 @@ sidebar .addData {
 }
 
 .jum {
-    /* margin: 25px; */
-    /* margin-left: 45px; */
-    margin-right: 20px;
-    margin-bottom: 20px;
+    margin: 25px;
+    margin-left: 45px;
     color: white;
     width: 300px;
     height: 160px;
@@ -242,30 +240,112 @@ sidebar .addData {
     background-color: #E74C3C;
 }
 
-/* Content  */
-.content {
-    padding: 20px;
+/* main warning */
+.box-info {
     display: flex;
-    flex-direction: column;
+    flex-wrap: 1;
 }
 
-/* main warning */
-.box-info{
-    display: flex;
+/* tambah guru */
+.form {
+    margin: 20px;
+    margin-left: 450px;
+    padding: 5px;
+}
+
+.judulform {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    text-decoration: underline;
+    text-align: left;
+    margin-top: -10px;
+}
+
+.add {
+    position: relative;
+    z-index: 1;
+    max-width: 360px;
+    margin: 0 auto 100px;
+    text-align: center;
+}
+
+.add input {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    outline: 0;
+    background: white;
+    width: 100%;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.add textarea {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    outline: 0;
+    background: white;
+    width: 100%;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.add .button {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-transform: uppercase;
+    background: #95a5a6;
+    width: 100%;
+    outline: 0;
+    border: 0;
+    padding: 15px;
+    color: #fff;
+    font-size: 14px;
+    -webkit-transition: all 0.3 ease;
+    transition: all 0.3 case;
+    cursor: pointer;
+}
+
+.add .button:hover,.add .button:active,.add .button:focus {
+    background: #1BEBC0;
+      }
+
+.adddata {
+    margin-top: 10px;
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 10px;
+    width: auto;
+    margin-right: -1000px;
+    text-align: right;
+    display: block;
+    text-decoration: none;
+}
+
+table {
+    padding: 5px;
+    width: 99%;
+    outline: 1;
+    border: 1;
+    font-size: 15px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    margin : 0 auto 0 auto;
 }
 
 .topwarning {
-    /* margin: 30px;
-    margin-left: 280px; */
+    margin: 30px;
+    margin-left: 280px;
     padding: 10px;
-    /* margin-top: -250px;
-    margin-right: 10px; */
-    /* position: absolute; */
+    margin-top: -250px;
+    margin-right: 10px;
+    position: absolute;
     width: 500px;
     height: 150px;
     border-radius: 10px;
     background-color: #E2E2E2;
-    margin-right: 20px;
 }
 
 .topwarning h1 {
@@ -275,12 +355,12 @@ sidebar .addData {
 
 .melanggartoday {
 
-    /* margin: 30px;
-    margin-left: 800px; */
+    margin: 30px;
+    margin-left: 800px;
     padding: 10px;
-    /* margin-top: -250px;
-    margin-right: 10px; */
-    /* position: absolute; */
+    margin-top: -250px;
+    margin-right: 10px;
+    position: absolute;
     width: 500px;
     height: 150px;
     border-radius: 10px;
@@ -306,9 +386,12 @@ sidebar .addData {
     color: #fff;
     text-decoration: none;
     font-weight: bolder;
-    font-size: 20px;
+    font-size: 26px;
     margin-left: 40px;
-    display: block;
+}
+
+.menu-sidebar .active {
+    background-color: #ddd;
 }
 
 .dashboard:before {
@@ -331,7 +414,7 @@ sidebar .addData {
     background-size : cover;
 }
 
-.AddPelanggaran::before{
+.AddSiswa::before{
     content: "";
     position: absolute;
     margin-right: 10px;
@@ -341,11 +424,7 @@ sidebar .addData {
     background-size: cover;
 }
 
-.AddPelanggaran a:hover {
-    background-color: #ddd;
-}
-
-.menu-sidebar .active {
+.AddSiswa a:hover {
     background-color: #ddd;
 }
 
@@ -360,3 +439,54 @@ footer {
     font-size: 20px;
     color : #858585;
 }
+
+/* Style the navigation menu */
+.topnav {
+    overflow: hidden;
+    background-color: #858585;
+    position: relative;
+  }
+  
+  /* Hide the links inside the navigation menu (except for logo/home) */
+  .topnav #myLinks {
+    display: none;
+  }
+  
+  /* Style navigation menu links */
+  .topnav a {
+    color: #333;
+    padding: 2px 10px;
+    text-decoration: none;
+    font-size: 17px;
+    display: block;
+  }
+  
+  /* Style the hamburger menu */
+  .topnav a.icon {
+    display: block;
+    align-content: center;
+    margin: auto;
+    right: 0;
+    top: 0;
+  }
+  
+  /* Add a grey background color on mouse-over */
+  .topnav a:hover {
+    background-color: #ddd;
+  }
+  
+  /* Style the active link (or home/logo) */
+  .active {
+    color: white;
+  }
+
+  .myLinks a {
+      color: white;
+      text-align: center;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  .buttonAdd{
+      padding: 10px 10px 10px 10px;
+      float: right;
+  }
