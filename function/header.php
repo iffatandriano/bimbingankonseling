@@ -2,7 +2,7 @@
         $conn = mysqli_connect("localhost","root","","bimbingankonseling");
         $id = $_SESSION['id'];
         if($_SESSION['level'] == 'Admin'){
-            $nama = "Admin";
+            $nama = "";
         }else if($_SESSION['level'] == 'Guru'){
             $sql = "SELECT * FROM t_guru WHERE id_guru = '$id'";
             $hasil = mysqli_query($conn,$sql);
@@ -23,7 +23,12 @@
 
                 <nav>
                     <ul>
-                        <li><a href="../logout.php">Logout</a></li>  
+                        <?php if($_SESSION['level']== "Admin"){
+                            echo "<li><a href='../../logout.php'>Logout</a></li>";
+                        }else{
+                            echo "<li><a href='../logout.php'>Logout</a></li>";
+                        }
+                        ?>
                     </ul>
                 </nav>
             </div>

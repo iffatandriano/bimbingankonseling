@@ -3,7 +3,7 @@
     $id = $_SESSION['id'];
     $digits = 9;
     $id_plg = rand(pow(10, $digits-1), pow(10, $digits)-1);
-    $nis = $_POST['nis'];
+    $nis = $_SESSION['newnis'];
     $jenis = $_POST['jenis'];
     $ket = $_POST['keterangan'];
     $tgl = date("Y/m/d"); 

@@ -5,6 +5,7 @@ if(empty($_SESSION['level'] == 'Guru')) {
     header("location:../index.php");
 } 
 $nis = $_POST['nis'];
+$_SESSION['newnis'] = $nis;
 ?>
 <!DOCTYPE html>
 <html>
