@@ -40,14 +40,14 @@
                         <img src="../images/intellectual.png" alt="">
                     </figure>
                     <div class="info">
-                        <p class="name">Iffat Andriano</p>
-                        <p class="kelas">awdaw</p>
+                        <p class="name">Nama : <?php echo $mrd_nama ?></p>
+                        <p class="kelas">Kelas : <?php echo $mrd_kelas ?></p>
                     </div>
                 </div><!-- /.profile -->
                 
                 <div class="pelanggaran flex">
                     <p class="total">Total Pelanggaran</p>
-                    <p class="jumtotal"><?php echo mysqli_num_rows($hasil) ?></p>
+                    <p class="jumtotal"><?php echo mysqli_num_rows($hasil)?></p>
                 </div>
                 
                 <div class="pelanggaran flex">
@@ -59,21 +59,21 @@
         <div class="menu siswa">
             <p>Pelanggaran Iffat Andriano</p>
             <table cellspacing="0">
-                <tr>
-                    <td>Merokok di dalam kelas</td>
+            <?php 
+                $sql = "SELECT * FROM t_pelanggaran WHERE nis = '$nis'";
+                $hasil = mysqli_query($conn,$sql);
+                $row = mysqli_fetch_row($hasil);
+                do{
+                    list($id_plg,$id_guru,$nis,$jenis,$ket,$tgl)=$row;
+                    echo "
+                    <tr>
+                    <td>$jenis</td>
                     <td>Andr S.P</td>
-                    <td>10/12/2018</td>
-                </tr>
-                <tr>
-                    <td>Merokok di dalam kelas</td>
-                    <td>Andr S.P</td>
-                    <td>10/12/2018</td>
-                </tr>
-                <tr>
-                    <td>Merokok di dalam kelas</td>
-                    <td>Andr S.P</td>
-                    <td>10/12/2018</td>
-                </tr>
+                    <td>$tgl</td>
+                    </tr>
+                    ";
+                }while($row = mysqli_fetch_row($hasil));    
+            ?>
             </table>
         </div>        
     </main>

@@ -12,7 +12,7 @@
             $sql = "SELECT * FROM t_wali WHERE id_wali = '$id'";
             $hasil = mysqli_query($conn,$sql);
             $row = mysqli_fetch_row($hasil); 
-            list($id,$nama)=$row;   
+            list($id,$nama)=$row;    
         }
     ?>
             <h1>Bimbingan Konseling</h1>
