@@ -135,7 +135,7 @@ sidebar .addData {
 }
 
 .container > main{
-    width: 80%;
+    width: 100%;
 }
 
 /* main */
@@ -281,6 +281,19 @@ sidebar .addData {
     font-size: 14px;
 }
 
+.add select {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    outline: 0;
+    background: white;
+    width: 100%;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+    color: #858585;
+}
+
 .add textarea {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     outline: 0;
@@ -325,14 +338,14 @@ sidebar .addData {
 }
 
 table {
-    padding: 10px;
-    margin-top: 40px;
-    width: 1000px;
-    outline: 0;
-    border: 0;
-    font-size: 20px;
+    padding: 5px;
+    width: 99%;
+    outline: 1;
+    border: 1;
+    font-size: 15px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-align: center;
+    margin : 0 auto 0 auto;
 }
 
 .topwarning {
@@ -484,4 +497,9 @@ footer {
       color: white;
       text-align: center;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  .buttonAdd{
+      padding: 10px 10px 10px 10px;
+      float: right;
   }

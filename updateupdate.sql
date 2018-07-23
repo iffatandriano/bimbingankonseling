@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.7.9
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 19, 2018 at 09:12 AM
--- Server version: 10.1.30-MariaDB
--- PHP Version: 7.2.1
+-- Waktu pembuatan: 22 Jul 2018 pada 09.59
+-- Versi server: 10.1.31-MariaDB
+-- Versi PHP: 7.2.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `t_guru`
+-- Struktur dari tabel `t_guru`
 --
 
 CREATE TABLE `t_guru` (
@@ -37,17 +37,18 @@ CREATE TABLE `t_guru` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `t_guru`
+-- Dumping data untuk tabel `t_guru`
 --
 
 INSERT INTO `t_guru` (`id_guru`, `gru_nama`, `gru_alamat`, `gru_nohp`, `gru_jabatan`) VALUES
+('593209150', 'Ikiw', 'Bubat', '08212345678', 'Guru'),
 ('A1', 'ikwi', 'bubat', '01238123', 'Guru'),
 ('A2', 'Arip', 'Aceg', '23', 'Alig');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `t_murid`
+-- Struktur dari tabel `t_murid`
 --
 
 CREATE TABLE `t_murid` (
@@ -59,10 +60,17 @@ CREATE TABLE `t_murid` (
   `mrd_nohp` varchar(13) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data untuk tabel `t_murid`
+--
+
+INSERT INTO `t_murid` (`nis`, `id_wali`, `mrd_nama`, `mrd_kelas`, `mrd_alamat`, `mrd_nohp`) VALUES
+('1232132', 'asd', 'asd', 'asd', 'asd', '21321321');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `t_pelanggaran`
+-- Struktur dari tabel `t_pelanggaran`
 --
 
 CREATE TABLE `t_pelanggaran` (
@@ -77,7 +85,7 @@ CREATE TABLE `t_pelanggaran` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `t_user`
+-- Struktur dari tabel `t_user`
 --
 
 CREATE TABLE `t_user` (
@@ -87,10 +95,18 @@ CREATE TABLE `t_user` (
   `level` varchar(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data untuk tabel `t_user`
+--
+
+INSERT INTO `t_user` (`id_user`, `username`, `password`, `level`) VALUES
+('593209150', 'ikiw', 'ikiw', 'Guru'),
+('asd', 'asd', 'asd', 'Admin');
+
 -- --------------------------------------------------------
 
 --
--- Table structure for table `t_wali`
+-- Struktur dari tabel `t_wali`
 --
 
 CREATE TABLE `t_wali` (
@@ -101,24 +117,31 @@ CREATE TABLE `t_wali` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
+-- Dumping data untuk tabel `t_wali`
+--
+
+INSERT INTO `t_wali` (`id_wali`, `wli_nama`, `wli_alamat`, `wli_nohp`) VALUES
+('asd', 'bapak ikiwi', 'asd', '08546544');
+
+--
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `t_guru`
+-- Indeks untuk tabel `t_guru`
 --
 ALTER TABLE `t_guru`
   ADD PRIMARY KEY (`id_guru`);
 
 --
--- Indexes for table `t_murid`
+-- Indeks untuk tabel `t_murid`
 --
 ALTER TABLE `t_murid`
   ADD PRIMARY KEY (`nis`),
   ADD KEY `id_wali` (`id_wali`);
 
 --
--- Indexes for table `t_pelanggaran`
+-- Indeks untuk tabel `t_pelanggaran`
 --
 ALTER TABLE `t_pelanggaran`
   ADD PRIMARY KEY (`id_pelanggaran`),
@@ -126,29 +149,29 @@ ALTER TABLE `t_pelanggaran`
   ADD KEY `nis` (`nis`);
 
 --
--- Indexes for table `t_user`
+-- Indeks untuk tabel `t_user`
 --
 ALTER TABLE `t_user`
   ADD PRIMARY KEY (`id_user`);
 
 --
--- Indexes for table `t_wali`
+-- Indeks untuk tabel `t_wali`
 --
 ALTER TABLE `t_wali`
   ADD PRIMARY KEY (`id_wali`);
 
 --
--- Constraints for dumped tables
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `t_murid`
+-- Ketidakleluasaan untuk tabel `t_murid`
 --
 ALTER TABLE `t_murid`
   ADD CONSTRAINT `t_murid_ibfk_1` FOREIGN KEY (`id_wali`) REFERENCES `t_wali` (`id_wali`);
 
 --
--- Constraints for table `t_pelanggaran`
+-- Ketidakleluasaan untuk tabel `t_pelanggaran`
 --
 ALTER TABLE `t_pelanggaran`
   ADD CONSTRAINT `t_pelanggaran_ibfk_1` FOREIGN KEY (`id_guru`) REFERENCES `t_guru` (`id_guru`),

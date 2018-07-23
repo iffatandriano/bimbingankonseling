@@ -20,11 +20,11 @@
                 <br>
                 <input type="text" name="username" placeholder="Username">
                 <input type="password" name="password" placeholder="Password">
-                <select name="level">
+                <!-- <select name="level">
                     <option value="Admin">Admin</option>
                     <option value="Guru">Guru</option>
                     <option value="Walimurid">Wali Murid</option>
-                </select>
+                </select> -->
                 <input type="submit" value="Login" name="submit" class="button">
             </form>
             <?php
@@ -34,15 +34,14 @@
                     
                     $username = $_POST['username'];
                     $password = $_POST['password'];
-                    $level = $_POST['level'];
                     
-                    $sql = "select * from user where username = '$username' and password = '$password' and level = '$level'";
+                    $sql = "select * from t_user where username = '$username' and password = '$password'";
                     $hasil = mysqli_query($link, $sql);
                     $row = mysqli_fetch_array($hasil);
                     $cek = mysqli_num_rows($hasil);
-                
+                    
                     if($cek > 0) {
-                        $_SESSION['id'] = $row['id'];
+                        $_SESSION['id'] = $row['id_user'];
                         $_SESSION['username'] = $row['username'];
                         $_SESSION['password'] = $row['password'];
                         $_SESSION['level'] = $row['level']; 
@@ -51,7 +50,7 @@
                             header("Location:admin/index.php");
                         } else if($_SESSION['level'] == 'Guru') {
                             header("Location:guru/index.php");
-                        } else if($_SESSION['level'] == 'Walimurid') {
+                        } else if($_SESSION['level'] == 'Wali') {
                             header("Location:walimurid/index.php");
                         } else if($_SESSION['level'] == 'Siswa') {
                             header("Location:siswa/index.php");

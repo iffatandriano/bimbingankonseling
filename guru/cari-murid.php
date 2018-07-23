@@ -26,25 +26,31 @@ if(empty($_SESSION['level'] == 'Guru')) {
 </head>
 <body>
     <header>
-            <?php require '../function/header.php'; ?>
+    <?php include '../function/header.php' ?>
     </header>
 
     <main class="container">
         <sidebar>
+        <sidebar>
             <?php include 'component/sidebar.html'?>
         </sidebar>
-            
-        <main class="box-container">
-                <?php include '../function/datacount.php'; ?>
+        </sidebar>
+
+       <main class="box-info">
+            <div class="form">
+                <form class="add" action="tambah-pelanggaran.php" method="POST">
+                    <h2 class="judulform">Input Form Pelanggaran</h2>
+                        <input type="text" name="nis" placeholder="Masukkan NIS Murid">                         
+                    <input type="submit" value="Cari Murid" class="button">
+                </form>
+            </div>
+        </main>     
         </main>
+        
+
     </main>
 
-        <main class="box-info">
-            <div class="melanggartoday">
-                <h1>Siswa Melanggar Hari Ini :</h1>
-            </div>
-        </main>    
-
+        
     <footer>
         Copyright &copy; 2018 <a href="">Bimbingan Konseling</a> All Right Reserved.
     </footer>
