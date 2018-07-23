@@ -57,16 +57,7 @@ if(empty($_SESSION['level'] == 'Admin')) {
         <main class="box-container">
                 <?php include '../function/datacount.php'; ?>
         </main>
-    </main>
-
-        <main class="box-info">
-            <div class="topwarning">
-                <h1>5 Top Pelanggaran Siswa Yang Dilakukan :</h1>
-            </div>
-            <div class="melanggartoday">
-                <h1>Siswa Melanggar Hari Ini :</h1>
-            </div>
-        </main>    
+    </main>    
 
     <footer>
         Copyright &copy; 2018 <a href="">Bimbingan Konseling</a> All Right Reserved.

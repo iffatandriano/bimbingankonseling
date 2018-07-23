@@ -3,7 +3,18 @@
 session_start();
 if(empty($_SESSION['level'] == 'Guru')) {
 	header("location:../index.php");
-} 
+}
+
+//Get Nis Pertama yang melanggar Hari Ini
+$conn = mysqli_connect("localhost","root","","bimbingankonseling");
+$curdate = date("Y/m/d");
+$row_today = mysqli_fetch_row(mysqli_query($conn,"SELECT nis FROM t_pelanggaran where plg_tgl = '$curdate'"));
+$nis_today = $row_today[0];
+
+//Get Info dari NIS pertama hari ini
+$row = mysqli_fetch_row(mysqli_query($conn,"SELECT * FROM t_murid where nis = '$nis_today'"));
+list($nis,$id_wali,$nama_murid,$kelas,$alamat,$nohp)=$row;
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -41,7 +52,7 @@ if(empty($_SESSION['level'] == 'Guru')) {
 
         <main class="box-info">
             <div class="melanggartoday">
-                <h1>Siswa Melanggar Hari Ini :</h1>
+                <h1>Siswa Melanggar Hari Ini : <?php echo $nama_murid ?> </h1>
             </div>
         </main>    
 

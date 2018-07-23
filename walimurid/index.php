@@ -9,16 +9,18 @@
     // echo $id_wali;
     $conn = $conn = mysqli_connect("localhost","root","","bimbingankonseling");
     $sql = "SELECT * FROM t_murid WHERE id_wali = '$id_wali'";
-
-    $sql_point = "SELECT SUM(point) AS point_sum FROM t_murid WHERE id_wali = '$id_wali'";
-    $sumpoint = mysqli_query($conn,$sql_point);
-    $rowpoint = mysqli_fetch_row($sumpoint);
-    $total_point = $rowpoint['point_sum'];
-
     $hasil = mysqli_query($conn,$sql);
     $row = mysqli_fetch_row($hasil);
     list($nis,$id_wali,$mrd_nama,$mrd_kelas,$mrd_alamat,$mrd_nohp)=$row;
     // echo "$nis, $id_wali, $nama, $kelas, $alamat, $nohp";
+
+    //Total Point Pelanggaran
+    $row_point = mysqli_fetch_row(mysqli_query($conn,"SELECT sum(point) from t_pelanggaran where nis='$nis'"));
+    $point = $row_point[0];
+
+    //Total Pelanggaran
+    $ttl_p = mysqli_num_rows(mysqli_query($conn,"SELECT * FROM t_pelanggaran where nis = '$nis'"));
+    
 ?>
 
 <!DOCTYPE html>
@@ -53,18 +55,22 @@
                 
                 <div class="pelanggaran flex">
                     <p class="total">Total Pelanggaran</p>
-                    <p class="jumtotal"><?php echo mysqli_num_rows($hasil)?></p>
+                    <p class="jumtotal"><?php echo $ttl_p   ?></p>
                 </div>
                 
                 <div class="pelanggaran flex">
                     <p class="point">Point Pelanggaran</p>
-                    <p class="jumpoint"><?php echo $total_point ?></p>  
+                    <p class="jumpoint"><?php echo $point ?></p>  
                 </div>
             </div>
         </sidebar>
         <div class="menu siswa">
             <p>Pelanggaran Iffat Andriano</p>
             <table cellspacing="0">
+                <tr>
+                    <td>Jenis</td>
+                    <td>Nama Guru</td>
+                    <td>Tangal</td>
             <?php 
                 $sql = "SELECT * FROM t_pelanggaran WHERE nis = '$nis'";
                 $hasil = mysqli_query($conn,$sql);
