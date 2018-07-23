@@ -4,11 +4,20 @@
     if(empty($_SESSION['level'] == 'Wali')) {
         header("Location:../index.php");
     }
+
+    $id_wali = $_SESSION['id'];
+    echo $id_wali;
+    $conn = $conn = mysqli_connect("localhost","root","","bimbingankonseling");
+    $sql = "SELECT * FROM t_murid WHERE id_wali = '$id_wali'";
+    $hasil = mysqli_query($conn,$sql);
+    $row = mysqli_fetch_row($hasil);
+    list($nis,$id_wali,$nama,$kelas,$alamat,$nohp)=$row;
+    echo "$nis, $id_wali, $nama, $kelas, $alamat, $nohp";
 ?>
 
 <!DOCTYPE html>
 <html>
-<head>
+<head>      
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Bimbingan Konseling - Wali Murid</title>
@@ -24,11 +33,11 @@
         <sidebar>
             <div class="menu sidebar">
                 <p class="walimurid">Wali Murid Dari Siswa</p>
-                <p class="name">Iffat Andriano</p>
-                <p class="kelas">XII MIA 3</p>
+                <p class="name"><?php echo $nama ?></p>
+                <p class="kelas"><?php echo $kelas ?></p>
                 <hr>
                 <p class="total">Total Pelanggaran</p>
-                <p class="jumtotal">10</p>
+                <p class="jumtotal"><? php echo mysqli_num_rows($hasil) ?></p>
                 <hr>
                 <p class="point">Point Pelanggaran</p>
                 <p class="jumpoint">50</p>  
