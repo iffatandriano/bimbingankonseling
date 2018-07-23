@@ -17,7 +17,7 @@
 </head>
 <body>
     <header>
-            <?php include '../function/header.php' ?>
+            <?php include '../function/header.php'; ?>
     </header>
 
     <main class="container">

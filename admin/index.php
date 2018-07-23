@@ -37,9 +37,6 @@ if(empty($_SESSION['level'] == 'Admin')) {
                     <li class="dashboard active">
                         <a href="index.php">DashBoard</a>
                     </li>
-                    <li class="AddSiswa">
-                        <a href="">Siswa</a>
-                    </li>
                     <div class="topnav">
                         <!-- Navigation links (hidden by default) -->
                         <li class="addData">

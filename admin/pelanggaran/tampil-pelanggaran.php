@@ -26,18 +26,7 @@ if(empty($_SESSION['level'] == 'Admin')) {
 </head>
 <body>
     <header>
-            <h1>Bimbingan Konseling</h1>
-            <div class="box-profile">
-                <img src="" class="profile-img">
-                <p>Iffat Andriano</p>
-                <p>Admin</p>
-
-                <nav>
-                    <ul>
-                        <li><a href="">Logout</a></li>  
-                    </ul>
-                </nav>
-            </div>
+        <?php include '../../function/header.php' ?>
     </header>
 
     <main class="container">
@@ -77,7 +66,7 @@ if(empty($_SESSION['level'] == 'Admin')) {
                                     <td>$jenis</td>
                                     <td>$keterangan</td>
                                     <td>$tanggal</td>
-                                    <td><a href='edit-guru.php?id=$id_plg'>Edit</a>  <a href='hapus-guru.php?id=$id_plg'>Hapus</a></td>
+                                    <td><a href='edit-pelanggaran.php?id=$id_plg'>Edit</a>  <a href='proses-hapus-pelanggaran.php?id=$id_plg'>Hapus</a></td>
                                 </tr>
                             ";
 

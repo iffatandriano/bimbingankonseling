@@ -26,40 +26,12 @@ if(empty($_SESSION['level'] == 'Admin')) {
 </head>
 <body>
     <header>
-            <h1>Bimbingan Konseling</h1>
-            <div class="box-profile">
-                <img src="" class="profile-img">
-                <p>Iffat Andriano</p>
-                <p>Admin</p>
-
-                <nav>
-                    <ul>
-                        <li><a href="">Logout</a></li>  
-                    </ul>
-                </nav>
-            </div>
+    <?php include '../../function/header.php' ?>
     </header>
 
     <main class="container">
         <sidebar>
-            <div class="menu-sidebar">
-                <ul>
-                    <li class="dashboard active"><a href="">DashBoard</a></li>
-                    <li class="AddSiswa"><a href="">Siswa</a></li>
-                    <div class="topnav">
-                    <!-- Navigation links (hidden by default) -->
-                    <li class="addData"><a href="#" onclick="myFunction()">Master Data</a></li>
-                    <div id="myLinks" class="myLinks">
-                        <a href="../guru/tampil-guru.php">Guru</a>
-                        <a href="../kelas/tampil-kelas.php">Kelas</a>
-                        <a href="../murid/tampil-murid.php">Murid</a>
-                        <a href="tampil-wali.php">Wali Murid</a>
-                        <a href="../pelanggaran/tampil-pelanggaran.php">Pelanggaran</a>
-                    </div>
-                    <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
-                    </div>             
-                </ul>
-            </div>
+        <?php include '../component/sidebar.html'; ?>
         </sidebar>
 
        <main class="box-info">

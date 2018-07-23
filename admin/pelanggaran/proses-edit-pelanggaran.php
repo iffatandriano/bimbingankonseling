@@ -1,18 +1,15 @@
 <?php 
-    $id = $_POST['id_guru'];
-    $nama = $_POST['nama_guru'];
-    $alamat = $_POST['alamat_guru'];
-    $nohp= $_POST['nohp_guru'];
-    $jabatan = $_POST['jabatan_guru'];
-    echo "$id";
+    $jenis = $_POST['jenis'];
+    $ket = $_POST['ket'];
+    $id = $_POST['id'];
     if($conn = mysqli_connect("localhost","root","","bimbingankonseling")){
         $sql=
-            "UPDATE t_guru 
-            SET gru_nama='$nama',gru_alamat='$alamat',gru_nohp='$nohp',gru_jabatan='$jabatan' 
-            WHERE id_guru ='$id' 
+            "UPDATE t_pelanggaran 
+            SET plg_jenis='$jenis', plg_keterangan='$ket' 
+            WHERE id_pelanggaran ='$id' 
             ";
         if($upload = mysqli_query($conn,$sql)){
-            header("Location:tampil-guru.php");
+            header("Location:tampil-pelanggaran.php");
         }else{
             echo "Upload Failed";
         }

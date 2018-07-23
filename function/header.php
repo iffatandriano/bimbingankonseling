@@ -9,7 +9,7 @@
             $row = mysqli_fetch_row($hasil);
             list($id,$nama)=$row;
         }else if($_SESSION['level'] == 'Wali'){
-            $sql = "SELECT * FROM t_guru WHERE id_wali = '$id'";
+            $sql = "SELECT * FROM t_wali WHERE id_wali = '$id'";
             $hasil = mysqli_query($conn,$sql);
             $row = mysqli_fetch_row($hasil); 
             list($id,$nama)=$row;   
@@ -23,7 +23,7 @@
 
                 <nav>
                     <ul>
-                        <?php if($_SESSION['level']== "Admin"){
+                        <?php if    ($_SESSION['level']== "Admin"){
                             echo "<li><a href='../../logout.php'>Logout</a></li>";
                         }else{
                             echo "<li><a href='../logout.php'>Logout</a></li>";
