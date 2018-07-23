@@ -281,6 +281,19 @@ sidebar .addData {
     font-size: 14px;
 }
 
+.add select {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    outline: 0;
+    background: white;
+    width: 100%;
+    border: 0;
+    margin: 0 0 15px;
+    padding: 15px;
+    box-sizing: border-box;
+    font-size: 14px;
+    color: #858585;
+}
+
 .add textarea {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     outline: 0;

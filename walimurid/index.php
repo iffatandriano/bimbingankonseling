@@ -6,13 +6,13 @@
     }
 
     $id_wali = $_SESSION['id'];
-    echo $id_wali;
+    // echo $id_wali;
     $conn = $conn = mysqli_connect("localhost","root","","bimbingankonseling");
     $sql = "SELECT * FROM t_murid WHERE id_wali = '$id_wali'";
     $hasil = mysqli_query($conn,$sql);
     $row = mysqli_fetch_row($hasil);
-    list($nis,$id_wali,$nama,$kelas,$alamat,$nohp)=$row;
-    echo "$nis, $id_wali, $nama, $kelas, $alamat, $nohp";
+    list($nis,$id_wali,$mrd_nama,$mrd_kelas,$mrd_alamat,$mrd_nohp)=$row;
+    // echo "$nis, $id_wali, $nama, $kelas, $alamat, $nohp";
 ?>
 
 <!DOCTYPE html>
@@ -32,19 +32,49 @@
     <main class="container">
         <sidebar>
             <div class="menu sidebar">
-                <p class="walimurid">Wali Murid Dari Siswa</p>
-                <p class="name"><?php echo $nama ?></p>
-                <p class="kelas"><?php echo $kelas ?></p>
-                <hr>
-                <p class="total">Total Pelanggaran</p>
-                <p class="jumtotal"><? php echo mysqli_num_rows($hasil) ?></p>
-                <hr>
-                <p class="point">Point Pelanggaran</p>
-                <p class="jumpoint">50</p>  
+                <div class="top">
+                    <p class="walimurid">Wali Murid Dari Siswa</p>
+                </div>
+                <div class="flex">
+                    <figure class="profile-img">
+                        <img src="../images/intellectual.png" alt="">
+                    </figure>
+                    <div class="info">
+                        <p class="name">Iffat Andriano</p>
+                        <p class="kelas">awdaw</p>
+                    </div>
+                </div><!-- /.profile -->
+                
+                <div class="pelanggaran flex">
+                    <p class="total">Total Pelanggaran</p>
+                    <p class="jumtotal"><?php echo mysqli_num_rows($hasil) ?></p>
+                </div>
+                
+                <div class="pelanggaran flex">
+                    <p class="point">Point Pelanggaran</p>
+                    <p class="jumpoint">50</p>  
+                </div>
             </div>
         </sidebar>
         <div class="menu siswa">
             <p>Pelanggaran Iffat Andriano</p>
+            <table cellspacing="0">
+                <tr>
+                    <td>Merokok di dalam kelas</td>
+                    <td>Andr S.P</td>
+                    <td>10/12/2018</td>
+                </tr>
+                <tr>
+                    <td>Merokok di dalam kelas</td>
+                    <td>Andr S.P</td>
+                    <td>10/12/2018</td>
+                </tr>
+                <tr>
+                    <td>Merokok di dalam kelas</td>
+                    <td>Andr S.P</td>
+                    <td>10/12/2018</td>
+                </tr>
+            </table>
         </div>        
     </main>
 

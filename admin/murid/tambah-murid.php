@@ -39,7 +39,7 @@ if(empty($_SESSION['level'] == 'Admin')) {
                 <form class="add" action="proses-tambah-murid.php" method="POST">
                     <h2 class="judulform">Input Form Murid</h2>
                         <input class="namewali" type="text" name="nis" placeholder="NIS">
-                        <select name="id_wali">
+                        <select name="id_wali" class="idwali">
                             <option>PILIH ID WALI</option>
                             <?php 
                                 $conn = mysqli_connect("localhost","root","","bimbingankonseling");
