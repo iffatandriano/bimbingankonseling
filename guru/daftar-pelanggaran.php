@@ -43,6 +43,7 @@ if(empty($_SESSION['level'] == 'Guru')) {
                     <td>NIS</td>
                     <td>Jenis</td>
                     <td>Keterangan</td>
+                    <td>Point</td>
                     <td>Tanggal Pelanggaran</td>
                     <td>Aksi</td>
                 </tr>
@@ -55,7 +56,7 @@ if(empty($_SESSION['level'] == 'Guru')) {
                     $row = mysqli_fetch_row($hasil);
                     $i = 1;
                     do{
-                        list($id_plg,$id_guru,$nis,$jenis,$keterangan,$tanggal)=$row;
+                        list($id_plg,$id_guru,$nis,$jenis,$keterangan,$tanggal,$point)=$row;
                         //Get Nama Murid
                         
                         echo "
@@ -65,6 +66,7 @@ if(empty($_SESSION['level'] == 'Guru')) {
                                     <td>$nis</td>
                                     <td>$jenis</td>
                                     <td>$keterangan</td>
+                                    <td>$point</td>
                                     <td>$tanggal</td>
                                     <td><a href='edit-guru.php?id=$id_plg'>Edit</a>  <a href='hapus-guru.php?id=$id_plg'>Hapus</a></td>
                                 </tr>

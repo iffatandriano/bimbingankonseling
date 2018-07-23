@@ -3,7 +3,9 @@
 session_start();
 if(empty($_SESSION['level'] == 'Admin')) {
 	header("location:../index.php");
-} 
+}
+$nis = $_POST['nis'];
+$_SESSION['newnis'] = $nis; 
 ?>
 <!DOCTYPE html>
 <html>
@@ -37,14 +39,24 @@ if(empty($_SESSION['level'] == 'Admin')) {
        <main class="box-info">
             <div class="form">
                 <form class="add" action="proses-tambah-pelanggaran.php" method="POST">
-                    <h2 class="judulform">Input Form Pelanggaran</h2>
-
-                        <input type="text" name="id_guru" placeholder="Masukkan Id Guru">
-                        <input class="nameguru" type="text" name="nis" placeholder="NIS Murid">
-                        <input type="text" name="jenis" placeholder="Jenis Pelanggaran">
-                        <textarea name="keterangan" placeholder="Keterangan"></textarea>      
-                                 
-                    <input type="submit" value="Add Data" class="button">
+                <?php 
+                        $sql_search = "SELECT * FROM t_murid where nis='$nis'";
+                        $hasil = mysqli_query($conn,$sql_search);
+                        $count = mysqli_num_rows($hasil);
+                        if($count > 0){
+                            echo "
+                                    <h2 class='judulform'>Input Form Pelanggaran</h2>
+                                    <input type='text' name='id' placeholder='ID Guru'>
+                                    <input type='text' name='jenis' placeholder='Jenis Pelanggaran'>
+                                    <textarea name='keterangan' placeholder='Keterangan'></textarea>      
+                                    <input type='number' name='point' placeholder='Point Pelanggaran'> 
+                                <input type='submit' value='Add Data' class='button'>
+                                ";
+                        }else{
+                            echo "<h2 class='judulform'>Murid dengan NIS tersebut tidak ditemukan!</h2><br>";
+                            echo "<a href='cari-murid.php'>Cari Kembali</a>";
+                        }
+                    ?>
                 </form>
             </div>
         </main>     

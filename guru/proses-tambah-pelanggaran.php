@@ -6,10 +6,11 @@
     $nis = $_SESSION['newnis'];
     $jenis = $_POST['jenis'];
     $ket = $_POST['keterangan'];
-    $tgl = date("Y/m/d"); 
+    $tgl = date("Y/m/d");
+    $point = $_POST['point'];
 
     if($conn = mysqli_connect("localhost","root","","bimbingankonseling")){ 
-        $sql = "INSERT INTO t_pelanggaran VALUE('$id_plg','$id','$nis','$jenis','$ket','$tgl')";
+        $sql = "INSERT INTO t_pelanggaran VALUE('$id_plg','$id','$nis','$jenis','$ket','$tgl','$point')";
         if($hasil = mysqli_query($conn,$sql)){
             header("Location: index.php");
         }else{

@@ -9,6 +9,12 @@
     // echo $id_wali;
     $conn = $conn = mysqli_connect("localhost","root","","bimbingankonseling");
     $sql = "SELECT * FROM t_murid WHERE id_wali = '$id_wali'";
+
+    $sql_point = "SELECT SUM(point) AS point_sum FROM t_murid WHERE id_wali = '$id_wali'";
+    $sumpoint = mysqli_query($conn,$sql_point);
+    $rowpoint = mysqli_fetch_row($sumpoint);
+    $total_point = $rowpoint['point_sum'];
+
     $hasil = mysqli_query($conn,$sql);
     $row = mysqli_fetch_row($hasil);
     list($nis,$id_wali,$mrd_nama,$mrd_kelas,$mrd_alamat,$mrd_nohp)=$row;
@@ -52,7 +58,7 @@
                 
                 <div class="pelanggaran flex">
                     <p class="point">Point Pelanggaran</p>
-                    <p class="jumpoint">50</p>  
+                    <p class="jumpoint"><?php echo $total_point ?></p>  
                 </div>
             </div>
         </sidebar>
@@ -65,10 +71,14 @@
                 $row = mysqli_fetch_row($hasil);
                 do{
                     list($id_plg,$id_guru,$nis,$jenis,$ket,$tgl)=$row;
+                    $sql_guru = "SELECT gru_nama FROM t_guru where id_guru='$id_guru'";
+                    $hasil_guru = mysqli_query($conn,$sql_guru);
+                    $row_guru = mysqli_fetch_row($hasil_guru);
+                    list($namaguru)=$row_guru;
                     echo "
                     <tr>
                     <td>$jenis</td>
-                    <td>Andr S.P</td>
+                    <td>$namaguru</td>
                     <td>$tgl</td>
                     </tr>
                     ";
