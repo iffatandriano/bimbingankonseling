@@ -54,15 +54,13 @@ $curdate = date("Y/m/d");
             <?php 
                 //Untuk Batasi Max 3
                 $i = 1;
-                echo $curdate;
                 //Fetch Data dari Tabel pelanggaran 
-                $hasil = mysqli_query($conn,"SELECT nis,plg_keterangan FROM t_pelanggaran where plg_tgl = '$curdate'");
-                echo mysqli_num_rows($hasil);
+                $hasil = mysqli_query($conn,"SELECT * FROM t_pelanggaran where plg_tgl = '$curdate'");
                 $row_today = mysqli_fetch_row($hasil);
-                
+                    
                 do{    
                     //Simpan Data Dari Table Pelanggaran
-                    list($nis_today,$ket)=$row_today;
+                    list($id_plg,$id_guru,$nis_today,$plg_jenis,$ket,$tgl,$point)=$row_today;
                     //Fetch kembali data dengan informasi yang didapat dari table pelanggaran
                     $row = mysqli_fetch_row(mysqli_query($conn,"SELECT * FROM t_murid where nis = '$nis_today'"));
                     list($nis,$id_wali,$nama_murid,$kelas,$alamat,$nohp)=$row;    
@@ -74,13 +72,13 @@ $curdate = date("Y/m/d");
                             <td>$nama_murid</td>
                             <td>Kelas   $kelas</td>
                             <td>$ket</td>
-                            <td>Point</td>
+                            <td>Point $point</td>
                         </tr>
                         ";
                 }
                 $i++;
                 //Kondisi Berhentinya ketika Sudah ada 3 Table atau sudah tidak ada row yang bisa di fetch
-            }while($row_today = mysqli_fetch_row(mysqli_query($conn,"SELECT nis,plg_keterangan FROM t_pelanggaran where plg_tgl = '$curdate'")) && $i <= 3);
+            }while(($row_today = mysqli_fetch_row($hasil)) && ($i <= 3));
             ?>
             </table>
         </div>          
