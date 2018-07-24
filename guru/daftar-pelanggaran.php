@@ -68,7 +68,7 @@ if(empty($_SESSION['level'] == 'Guru')) {
                                     <td>$keterangan</td>
                                     <td>$point</td>
                                     <td>$tanggal</td>
-                                    <td><a href='edit-guru.php?id=$id_plg'>Edit</a>  <a href='hapus-guru.php?id=$id_plg'>Hapus</a></td>
+                                    <td><a href='edit-pelanggaran.php?id=$id_plg'>Edit</a>  <a href='proses-hapus-pelanggaran.php?id=$id_plg'>Hapus</a></td>
                                 </tr>
                             ";
 
