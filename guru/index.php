@@ -52,34 +52,35 @@ $curdate = date("Y/m/d");
             <p>Siswa Melanggar Hari Ini :</p>
             <table cellspacing="0">
             <?php 
-            //Untuk Batasi Max 3
-            $i = 1;
-
-            //Fetch Data dari Tabel pelanggaran 
-            $hasil = mysqli_query($conn,"SELECT nis,plg_keterangan FROM t_pelanggaran where plg_tgl = '$curdate'");
-            $row_today = mysqli_fetch_row($hasil);
-            do{    
-            //Simpan Data Dari Table Pelanggaran
-            list($nis_today,$ket)=$row_today;
-            //Fetch kembali data dengan informasi yang didapat dari table pelanggaran
-            $row = mysqli_fetch_row(mysqli_query($conn,"SELECT * FROM t_murid where nis = '$nis_today'"));
-            list($nis,$id_wali,$nama_murid,$kelas,$alamat,$nohp)=$row;    
-
-            //Bila Data kosong tidak akan dicetak
-            if($kelas != '' && $ket != ''){
-            echo "
-                <tr>
-                    <td>$nama_murid</td>
-                    <td>Kelas   $kelas</td>
-                    <td>$ket</td>
-                    <td>Point</td>
-                </tr>
-                ";
-            }
-
-            $i++;
-            //Kondisi Berhentinya ketika Sudah ada 3 Table atau sudah tidak ada row yang bisa di fetch
-            }while($row_today = mysqli_fetch_row(mysqli_query($conn,"SELECT nis FROM t_pelanggaran where plg_tgl = '$curdate'")) && $i <= 3);
+                //Untuk Batasi Max 3
+                $i = 1;
+                echo $curdate;
+                //Fetch Data dari Tabel pelanggaran 
+                $hasil = mysqli_query($conn,"SELECT nis,plg_keterangan FROM t_pelanggaran where plg_tgl = '$curdate'");
+                echo mysqli_num_rows($hasil);
+                $row_today = mysqli_fetch_row($hasil);
+                
+                do{    
+                    //Simpan Data Dari Table Pelanggaran
+                    list($nis_today,$ket)=$row_today;
+                    //Fetch kembali data dengan informasi yang didapat dari table pelanggaran
+                    $row = mysqli_fetch_row(mysqli_query($conn,"SELECT * FROM t_murid where nis = '$nis_today'"));
+                    list($nis,$id_wali,$nama_murid,$kelas,$alamat,$nohp)=$row;    
+                    
+                    //Bila Data kosong tidak akan dicetak
+                    if($kelas != '' && $ket != ''){
+                    echo "
+                        <tr>
+                            <td>$nama_murid</td>
+                            <td>Kelas   $kelas</td>
+                            <td>$ket</td>
+                            <td>Point</td>
+                        </tr>
+                        ";
+                }
+                $i++;
+                //Kondisi Berhentinya ketika Sudah ada 3 Table atau sudah tidak ada row yang bisa di fetch
+            }while($row_today = mysqli_fetch_row(mysqli_query($conn,"SELECT nis,plg_keterangan FROM t_pelanggaran where plg_tgl = '$curdate'")) && $i <= 3);
             ?>
             </table>
         </div>          

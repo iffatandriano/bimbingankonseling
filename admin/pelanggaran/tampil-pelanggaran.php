@@ -35,7 +35,7 @@ if(empty($_SESSION['level'] == 'Admin')) {
         </sidebar>
 
         <main>
-            <label class="buttonAdd"><a href="tambah-pelanggaran.php">Tambah Pelanggaran</a></label>
+            <label class="buttonAdd"><a href="cari-murid.php">Tambah Pelanggaran</a></label>
             <table border=1>
                 <tr>
                     <td>#</td>
