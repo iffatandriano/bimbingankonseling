@@ -65,7 +65,7 @@
             </div>
         </sidebar>
         <div class="menu siswa">
-            <p>Pelanggaran Iffat Andriano</p>
+            <p>Pelanggaran <?php echo $mrd_nama ?> :</p>
             <table cellspacing="0">
                 <tr>
                     <td>Jenis</td>

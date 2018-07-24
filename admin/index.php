@@ -85,6 +85,30 @@ if(empty($_SESSION['level'] == 'Admin')) {
         <main class="box-container">
                 <?php include '../function/datacount.php'; ?>
         </main>
+
+    <main class="box-info">
+    <div class="menulanggar siswalanggar">
+            <p>Siswa Melanggar Hari Ini :</p>
+            <table cellspacing="0">
+                <tr>
+                    <td>Iffat Andriano</td>
+                    <td>XII IPA 3</td>
+                    <td>Pelanggaran : Merokok didalam kelas</td>
+                    <td>Point Pelanggaran : 50</td>
+                </tr>
+                <tr>
+                    <td>Iffat Andriano</td>
+                    <td>Pelanggaran : Merokok didalam kelas</td>
+                    <td>Point Pelanggaran : 50</td>
+                </tr>
+                <tr>
+                    <td>Iffat Andriano</td>
+                    <td>Pelanggaran : Merokok didalam kelas</td>
+                    <td>Point Pelanggaran : 50</td>
+                </tr>
+            </table>
+        </div>          
+    </main>
     </main>    
 
     <footer>
