@@ -48,13 +48,31 @@ list($nis,$id_wali,$nama_murid,$kelas,$alamat,$nohp)=$row;
         <main class="box-container">
                 <?php include '../function/datacount.php'; ?>
         </main>
-    </main>
 
-        <main class="box-info">
-            <div class="melanggartoday">
-                <h1>Siswa Melanggar Hari Ini : <?php echo $nama_murid ?> </h1>
-            </div>
-        </main>    
+    <main class="box-langgar">
+    <div class="menulanggar siswalanggar">
+            <p>Siswa Melanggar Hari Ini :</p>
+            <table cellspacing="0">
+                <tr>
+                    <td>Iffat Andriano</td>
+                    <td>XII IPA 3</td>
+                    <td>Pelanggaran : Merokok didalam kelas</td>
+                    <td>Point Pelanggaran : 50</td>
+                </tr>
+                <tr>
+                    <td>Iffat Andriano</td>
+                    <td>Pelanggaran : Merokok didalam kelas</td>
+                    <td>Point Pelanggaran : 50</td>
+                </tr>
+                <tr>
+                    <td>Iffat Andriano</td>
+                    <td>Pelanggaran : Merokok didalam kelas</td>
+                    <td>Point Pelanggaran : 50</td>
+                </tr>
+            </table>
+        </div>          
+    </main>        
+    </main>
 
     <footer>
         Copyright &copy; 2018 <a href="">Bimbingan Konseling</a> All Right Reserved.

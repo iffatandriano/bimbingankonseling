@@ -246,6 +246,57 @@ sidebar .addData {
     flex-wrap: 1;
 }
 
+.box-langgar {
+    display: flex;
+    flex-direction: column-reverse;
+    margin-left: -1090px;
+}
+
+.menulanggar {
+    margin-right: 20px;
+    margin-bottom: 20px;
+    color: white;
+    width: 300px;
+    /* min-height: 220px; */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-radius: 10px;
+}
+
+.siswalanggar {
+    background-color: #E2E2E2;
+    margin-left: 20px;
+    margin-top: 20px;
+    width: 91%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+table {
+    width: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #858585;
+    margin: 10px;
+}
+
+table td {
+    border-top: 1px solid #fff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 10px;
+    text-align: left;
+}
+
+table tr:last-child > td {
+    border-bottom: 1px solid #fff;
+}
+
+.siswalanggar table tr {
+    border-top: 2px solid red;
+}
+
+.siswalanggar p {
+    color: #858585;
+    margin-left: 15px;
+}
+
 /* tambah guru */
 .form {
     margin: 20px;
