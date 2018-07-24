@@ -51,7 +51,7 @@ $_SESSION['newnis'] = $nis;
                                     <h2 class='judulform'>Input Form Pelanggaran</h2>
                                     <input type='text' name='jenis' placeholder='Jenis Pelanggaran'>
                                     <textarea name='keterangan' placeholder='Keterangan'></textarea>      
-                                            
+                                    <input type='number' name='point' placeholder='Point Pelanggaran'> 
                                 <input type='submit' value='Add Data' class='button'>
                                 ";
                         }else{
