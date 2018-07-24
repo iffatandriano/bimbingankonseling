@@ -58,7 +58,7 @@ if(empty($_SESSION['level'] == 'Admin')) {
                 <?php include '../function/datacount.php'; ?>
         </main>
 
-    <main class="box-info">
+    <main class="box-langgar">
     <div class="menulanggar siswalanggar">
             <p>Siswa Melanggar Hari Ini :</p>
             <table cellspacing="0">

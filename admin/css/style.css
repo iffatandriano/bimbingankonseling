@@ -243,6 +243,11 @@ sidebar .addData {
 /* main warning */
 .box-info {
     display: flex;
+    flex-wrap: 1;
+}
+
+.box-langgar {
+    display: flex;
     flex-direction: column-reverse;
     margin-left: -1120px;
 }
