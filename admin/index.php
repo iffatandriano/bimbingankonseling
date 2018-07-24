@@ -90,22 +90,37 @@ if(empty($_SESSION['level'] == 'Admin')) {
     <div class="menulanggar siswalanggar">
             <p>Siswa Melanggar Hari Ini :</p>
             <table cellspacing="0">
-                <tr>
-                    <td>Iffat Andriano</td>
-                    <td>XII IPA 3</td>
-                    <td>Pelanggaran : Merokok didalam kelas</td>
-                    <td>Point Pelanggaran : 50</td>
-                </tr>
-                <tr>
-                    <td>Iffat Andriano</td>
-                    <td>Pelanggaran : Merokok didalam kelas</td>
-                    <td>Point Pelanggaran : 50</td>
-                </tr>
-                <tr>
-                    <td>Iffat Andriano</td>
-                    <td>Pelanggaran : Merokok didalam kelas</td>
-                    <td>Point Pelanggaran : 50</td>
-                </tr>
+            <?php 
+                //Untuk Batasi Max 3
+                $i = 1;
+                //Ambil Informasi Tanggal
+                $curdate = date("Y/m/d");
+                //Fetch Data dari Tabel pelanggaran
+                $hasil = mysqli_query($conn,"SELECT * FROM t_pelanggaran where plg_tgl = '$curdate'");
+                $row_today = mysqli_fetch_row($hasil);
+                    
+                do{    
+                    //Simpan Data Dari Table Pelanggaran
+                    list($id_plg,$id_guru,$nis_today,$plg_jenis,$ket,$tgl,$point)=$row_today;
+                    //Fetch kembali data dengan informasi yang didapat dari table pelanggaran
+                    $row = mysqli_fetch_row(mysqli_query($conn,"SELECT * FROM t_murid where nis = '$nis_today'"));
+                    list($nis,$id_wali,$nama_murid,$kelas,$alamat,$nohp)=$row;    
+                    
+                    //Bila Data kosong tidak akan dicetak
+                    if($kelas != '' && $ket != ''){
+                    echo "
+                        <tr>
+                            <td>$nama_murid</td>
+                            <td>Kelas   $kelas</td>
+                            <td>$ket</td>
+                            <td>Point $point</td>
+                        </tr>
+                        ";
+                }
+                $i++;
+                //Kondisi Berhentinya ketika Sudah ada 3 Table atau sudah tidak ada row yang bisa di fetch
+            }while(($row_today = mysqli_fetch_row($hasil)) && ($i <= 3));
+            ?>
             </table>
         </div>          
     </main>
